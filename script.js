@@ -57,7 +57,7 @@ function renderContent(content) {
         const img = document.createElement('img');
         img.src = image.src;
         img.alt = image.alt;
-        img.className = `w-1/3 h-25 object-contain animation-trigger animate-${index === 0 ? 'slide-in-left mt-20' : index === 2 ? 'slide-in-right mt-20' : 'zoom-in-out'}`;
+        img.className = `w-1/3 h-25 object-contain animation-trigger animation-${index === 0 ? 'slide-in-left animation-float-up-down mt-20' : index === 2 ? 'slide-in-right animation-float-up-down mt-20' : 'float-up-down'}`;
         smallImagesContainer.appendChild(img);
     });
     document.getElementById('event-text').textContent = content.invitation.eventText;
@@ -158,9 +158,9 @@ function setupScrollAnimations() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                const animationType = entry.target.classList.contains('animation-fade-in') ? 'animate-fade-in' :
-                    entry.target.classList.contains('animation-slide-in-left') ? 'animate-slide-in-left' :
-                        entry.target.classList.contains('animation-slide-in-right') ? 'animate-slide-in-right' : '';
+                const animationType = entry.target.classList.contains('animation-fade-in') ? 'animation-fade-in' :
+                    entry.target.classList.contains('animation-slide-in-left') ? 'animation-slide-in-left' :
+                        entry.target.classList.contains('animation-slide-in-right') ? 'animation-slide-in-right' : '';
                 if (animationType) {
                     entry.target.classList.add(animationType);
                     entry.target.classList.remove('animation-hidden');
@@ -169,7 +169,7 @@ function setupScrollAnimations() {
             }
         });
     }, {
-        threshold: 0.2 // Trigger when 20% of element is visible
+        threshold: 0.01 // Trigger when 20% of element is visible
     });
 
     elements.forEach(element => {
