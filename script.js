@@ -226,6 +226,7 @@ function setupMusicControl() {
     musicControl.addEventListener('click', () => {
         if (audio.paused) {
             audio.play().then(() => {
+                musicControl.classList.remove('paused');
                 musicControl.classList.add('playing');
             }).catch(error => {
                 console.error('Lỗi khi phát nhạc:', error);
@@ -234,6 +235,7 @@ function setupMusicControl() {
         } else {
             audio.pause();
             musicControl.classList.remove('playing');
+            musicControl.classList.add('paused');
         }
     });
 }

@@ -168,12 +168,13 @@ body {
 /* Music Control Icon Styles */
 #wedding-music {
     display: none;
-    /* Ẩn thẻ audio */
 }
 
 #music-control {
     z-index: 1000;
     transition: transform 0.2s ease, color 0.3s ease;
+    position: relative;
+    color: rgb(190 18 60);
 }
 
 #music-control:hover {
@@ -183,6 +184,24 @@ body {
 
 #music-control.playing {
     color: rgb(190 18 60);
+}
+
+#music-control.paused::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    width: 80%;
+    height: 2px;
+    background-color: currentColor;
+    transform: rotate(-45deg) translateY(-50%);
+    transform-origin: center;
+    pointer-events: none;
+    transition: background-color 0.3s ease;
+}
+
+#music-control.paused:hover::after {
+    background-color: currentColor;
 }
 
 /* Animation keyframes */
