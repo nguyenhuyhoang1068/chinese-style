@@ -69,9 +69,16 @@ function renderContent(content) {
     document.getElementById('venue').textContent = content.invitation.venue;
     document.getElementById('address').textContent = content.invitation.address;
 
-    // Date Section
+    // Calendar
+    const calendarDateStr = content.dateSection.calendar; // "18-10-2025"
+    const [dayStr, monthStr, yearStr] = calendarDateStr.split('-'); // ['18', '10', '2025']
+    const weddingDay = parseInt(dayStr, 10);
+    const month = parseInt(monthStr, 10);
+    const year = parseInt(yearStr, 10);
+
     document.getElementById('month-year').textContent = content.dateSection.monthYear;
-    document.getElementById('calendar').textContent = `(${content.dateSection.calendar})`;
+    const calendarContainer = document.getElementById('calendar');
+    calendarContainer.innerHTML = generateCalendar(year, month, weddingDay);
 
     // RSVP
     document.getElementById('rsvp-title').textContent = content.rsvp.title;
@@ -107,6 +114,40 @@ function renderContent(content) {
     // Footer
     document.getElementById('thank-you').textContent = content.footer.thankYou;
     document.getElementById('welcome').textContent = content.footer.welcome;
+}
+
+function generateCalendar(year, month, weddingDay) {
+    const daysInMonth = new Date(year, month, 0).getDate();
+    let firstDay = new Date(year, month - 1, 1).getDay();
+    firstDay = (firstDay === 0) ? 6 : firstDay - 1; // Chuyển Chủ Nhật về cuối tuần
+
+    const days = ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'];
+
+    let calendarHTML = `
+        <table class="calendar-table">
+            <thead>
+                <tr>${days.map(day => `<th>${day}</th>`).join('')}</tr>
+            </thead>
+            <tbody>
+    `;
+
+    let day = 1;
+    while (day <= daysInMonth) {
+        calendarHTML += '<tr>';
+        for (let j = 0; j < 7; j++) {
+            if ((day === 1 && j < firstDay) || day > daysInMonth) {
+                calendarHTML += '<td class="empty"></td>';
+            } else {
+                const isWeddingDay = day === weddingDay ? 'wedding-day' : '';
+                calendarHTML += `<td class="${isWeddingDay}"><span>${day}</span></td>`;
+                day++;
+            }
+        }
+        calendarHTML += '</tr>';
+    }
+
+    calendarHTML += '</tbody></table>';
+    return calendarHTML;
 }
 
 function setupRsvpForm() {

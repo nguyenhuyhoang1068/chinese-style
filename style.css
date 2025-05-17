@@ -71,6 +71,87 @@ body {
     right: -39px;
 }
 
+/* Calendar Styles */
+.calendar-bg {
+    background: radial-gradient(circle at center, rgb(188, 5, 51) 0%, rgb(210, 33, 77) 0%, rgb(235, 73, 113) 0%);
+}
+
+
+.calendar-container {
+    max-width: 280px;
+    margin: 0 auto;
+    font-family: 'Roboto', sans-serif;
+}
+
+.calendar-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.calendar-table th,
+.calendar-table td {
+    padding: 8px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: white;
+}
+
+.calendar-table th {
+    color: white;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+}
+
+.calendar-table td {
+    position: relative;
+    border: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+.calendar-table td.empty {
+    background: transparent; 
+}
+
+.calendar-table td.wedding-day {
+    font-weight: 600;
+    color: white;
+    position: relative;
+}
+
+.calendar-table td.wedding-day::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' fill='white' stroke='white' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round' viewBox='0 0 24 24'><path d='M12 21C12 21 7 16.5 5 12.5C3 8.5 5 5 8 5C10 5 12 7 12 7C12 7 14 5 16 5C19 5 21 8.5 19 12.5C17 16.5 12 21 12 21Z'/></svg>") no-repeat center;
+    background-size: contain;
+    opacity: 0.5;
+    z-index: 0;
+}
+
+.calendar-table td.wedding-day span {
+    position: relative;
+    z-index: 1;
+}
+
+.calendar-table td:not(.empty):hover {
+    border: 1px solid white;
+    border-radius: 8px;
+}
+
+.album-bg {
+    background: linear-gradient(to bottom, #f8f1eb, #fff);
+}
+
 /* Animation keyframes */
 @keyframes fadeIn {
     from {

@@ -2,8 +2,8 @@
     "header": {
         "title": "THIỆP MỜI",
         "couple": "Huy Hoàng - Kim Thoa",
-        "day": "THỨ 7 - 10H00",
-        "date": "15.10.2025"
+        "day": "THỨ 7 - 18H00",
+        "date": "18.10.2025"
     },
     "mainImage": {
         "src": "assets/images/main-couple.jpg",
@@ -50,16 +50,16 @@
         ],
         "eventText": "THAM DỰ TIỆC MỪNG LỄ THÀNH HÔN",
         "timeLabel": "Vào lúc",
-        "time": "10 giờ 00",
-        "date": "Thứ 7, 15 Tháng 10, Năm 2025",
-        "lunarDate": "Tức ngày 18 tháng 09 năm Ất Tỵ",
+        "time": "18 giờ 00",
+        "date": "Thứ 7, 18 Tháng 10, Năm 2025",
+        "lunarDate": "Tức ngày 27 tháng 08 năm Ất Tỵ",
         "locationText": "BUỔI TIỆC ĐƯỢC TỔ CHỨC TẠI",
         "venue": "BINH MINH RESTAURANT - HOTEL",
-        "address": "20 Đồi Dương, Phường Hưng Long, Phan Thiết, Bình Thuận"
+        "address": "211 Lê Lợi, Phường Hưng Long, Phan Thiết, Bình Thuận"
     },
     "dateSection": {
-        "monthYear": "THÁNG 05 - 2025",
-        "calendar": "Lịch Dương"
+        "monthYear": "Tháng 10 - 2025",
+        "calendar": "18-10-2025"
     },
     "rsvp": {
         "title": "XÁC NHẬN THAM DỰ & GỬI LỜI CHÚC",
