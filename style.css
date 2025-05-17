@@ -58,13 +58,18 @@ body {
 }
 
 #main-image {
-    width: 100%;
     max-width: 600px;
-    border-radius: 12px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     animation: zoomInOut 6s ease-in-out infinite;
 }
 
+.lantern {
+    width: 80px;
+    height: 120px;
+    bottom: -95px;
+    right: -40px;
+    animation: zoomInOut 6s ease-in-out infinite;
+}
 /* Zoom in – out loop animation */
 @keyframes zoomInOut {
 

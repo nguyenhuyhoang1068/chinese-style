@@ -28,22 +28,27 @@
         </div>
 
         <!-- Main Image -->
-        <div class="flex justify-center items-center h-64 bg-gray-100">
-            <img id="main-image" class="max-h-full max-w-full object-contain animate-zoom-in">
+        <div class="flex justify-center items-center h-96">
+            <div class="relative flex justify-center items-center h-96">
+                <img id="main-image"
+                    class="max-h-full max-w-full object-contain animate-zoom-in border-[6px] border-[#b91c1c] rounded-lg">
+                <img src="assets/images/lantern.png" alt="Lồng đèn"
+                    class="absolute lantern object-contain">
+            </div>
         </div>
 
         <!-- Family Information -->
         <div class="flex justify-between px-6 py-8 text-center text-gray-700">
-            <div class="w-1/2 animate-slide-in-left">
+            <div class="w-1/2 animate-slide-in-left text-sm">
                 <p id="groom-title" class="font-bold"></p>
-                <p id="groom-father"></p>
-                <p id="groom-mother"></p>
+                <p id="groom-father" class="font-bold"></p>
+                <p id="groom-mother" class="font-bold"></p>
                 <p id="groom-location"></p>
             </div>
-            <div class="w-1/2 animate-slide-in-right">
+            <div class="w-1/2 animate-slide-in-right text-sm">
                 <p id="bride-title" class="font-bold"></p>
-                <p id="bride-father"></p>
-                <p id="bride-mother"></p>
+                <p id="bride-father" class="font-bold"></p>
+                <p id="bride-mother" class="font-bold"></p>
                 <p id="bride-location"></p>
             </div>
         </div>
@@ -54,7 +59,8 @@
             <h3 id="announcement-groom"
                 class="text-2xl font-bold text-rose-700 imperial-script-regular mt-2 animate-fade-in-up"></h3>
             <p class="text-xl text-rose-700 imperial-script-regular animate-fade-in-up">&</p>
-            <h3 id="announcement-bride" class="text-2xl font-bold text-rose-700 imperial-script-regular animate-fade-in-up">
+            <h3 id="announcement-bride"
+                class="text-2xl font-bold text-rose-700 imperial-script-regular animate-fade-in-up">
             </h3>
         </div>
 
@@ -109,7 +115,8 @@
 
         <!-- Photo Album -->
         <div class="py-8 px-6 bg-rose-50">
-            <h3 id="album-title" class="text-center text-xl font-bold text-rose-800 dancing-script-400 animate-fade-in-up">
+            <h3 id="album-title"
+                class="text-center text-xl font-bold text-rose-800 dancing-script-400 animate-fade-in-up">
             </h3>
             <div id="album-images" class="grid grid-cols-2 gap-4 mt-4">
                 <!-- Album images will be inserted here -->
