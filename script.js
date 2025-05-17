@@ -57,7 +57,7 @@ function renderContent(content) {
         const img = document.createElement('img');
         img.src = image.src;
         img.alt = image.alt;
-        img.className = `w-1/3 h-24 object-cover animation-trigger animation-${index === 0 ? 'slide-in-left' : index === 2 ? 'slide-in-right' : 'fade-in'}`;
+        img.className = `w-1/3 h-25 object-contain animation-trigger animate-${index === 0 ? 'slide-in-left mt-20' : index === 2 ? 'slide-in-right mt-20' : 'zoom-in-out'}`;
         smallImagesContainer.appendChild(img);
     });
     document.getElementById('event-text').textContent = content.invitation.eventText;
@@ -92,7 +92,12 @@ function renderContent(content) {
         const img = document.createElement('img');
         img.src = image.src;
         img.alt = image.alt;
-        img.className = `h-32 object-cover animation-trigger animation-${index % 2 === 0 ? 'slide-in-left' : 'slide-in-right'}`;
+        img.className = `h-40 object-contain animation-trigger animation-${index % 2 === 0 ? 'slide-in-left' : 'slide-in-right'}`;
+        if (index % 2 === 0) {
+            img.style.justifySelf = 'end';
+        } else {
+            img.style.justifySelf = 'start';
+        }
         albumImagesContainer.appendChild(img);
     });
     const blurredImage = document.getElementById('blurred-image');

@@ -60,15 +60,13 @@ body {
 #main-image {
     max-width: 600px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    animation: zoomInOut 6s ease-in-out infinite;
 }
 
 .lantern {
     width: 80px;
     height: 120px;
     bottom: -95px;
-    right: -40px;
-    animation: zoomInOut 6s ease-in-out infinite;
+    right: -39px;
 }
 /* Zoom in – out loop animation */
 @keyframes zoomInOut {
@@ -119,19 +117,6 @@ body {
     }
 }
 
-/* Animation classes */
-.animate-fade-in {
-    animation: fadeIn 1s ease-in-out;
-}
-
-.animate-slide-in-left {
-    animation: slideInLeft 1s ease-in-out;
-}
-
-.animate-slide-in-right {
-    animation: slideInRight 1s ease-in-out;
-}
-
 @keyframes zoomIn {
     from {
         transform: scale(0.8);
@@ -172,6 +157,19 @@ body {
     }
 }
 
+/* Animation classes */
+.animate-fade-in {
+    animation: fadeIn 1s ease-in-out;
+}
+
+.animate-slide-in-left {
+    animation: slideInLeft 1s ease-in-out;
+}
+
+.animate-slide-in-right {
+    animation: slideInRight 1s ease-in-out;
+}
+
 .animate-zoom-in {
     animation: zoomIn 0.8s ease-in-out;
 }
@@ -182,4 +180,8 @@ body {
 
 .animate-fade-in-up {
     animation: fadeInUp 1s ease-out;
+}
+
+.animate-zoom-in-out {
+    animation: zoomInOut 6s ease-in-out infinite;
 }
