@@ -4,6 +4,7 @@ async function initialize() {
     await loadContent();
     setupRsvpForm();
     setupScrollAnimations();
+    setupMusicControl();
 }
 
 async function loadContent() {
@@ -118,6 +119,10 @@ function renderContent(content) {
     // Footer
     document.getElementById('thank-you').textContent = content.footer.thankYou;
     document.getElementById('welcome').textContent = content.footer.welcome;
+
+    // Music
+    const audio = document.getElementById('wedding-music');
+    audio.src = content.music.src;
 }
 
 function generateCalendar(year, month, weddingDay) {
@@ -196,6 +201,41 @@ function clearForm() {
     document.getElementById('relationship').value = '';
     document.getElementById('message').value = '';
     document.getElementById('attendance').value = 'yes';
+}
+
+function setupMusicControl() {
+    const audio = document.getElementById('wedding-music');
+    const musicControl = document.getElementById('music-control');
+
+    // Pointerdown
+    const enableAudio = () => {
+        if (audio.paused) {
+            audio.play().then(() => {
+                musicControl.classList.add('playing');
+            }).catch(error => {
+                console.error('Lỗi khi phát nhạc:', error);
+                showMessage('Không thể phát nhạc. Vui lòng nhấp lại vào biểu tượng nốt nhạc.', 'text-red-600');
+            });
+        }
+        document.removeEventListener('pointerdown', enableAudio);
+    };
+
+    document.addEventListener('pointerdown', enableAudio);
+
+    // Play/pause
+    musicControl.addEventListener('click', () => {
+        if (audio.paused) {
+            audio.play().then(() => {
+                musicControl.classList.add('playing');
+            }).catch(error => {
+                console.error('Lỗi khi phát nhạc:', error);
+                showMessage('Không thể phát nhạc. Vui lòng nhấp lại vào biểu tượng nốt nhạc.', 'text-red-600');
+            });
+        } else {
+            audio.pause();
+            musicControl.classList.remove('playing');
+        }
+    });
 }
 
 function setupScrollAnimations() {

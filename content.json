@@ -110,5 +110,10 @@
     "footer": {
         "thankYou": "Thank you!",
         "welcome": "Rất hân hạnh được đón tiếp."
+    },
+    "music": {
+        "title": "Chỉ cần mình có nhau",
+        "artist": "Vũ Cát Tường",
+        "src": "assets/music/ChiCanCoNhau-VuCatTuong.mp3"
     }
 }
