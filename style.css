@@ -171,10 +171,17 @@ body {
 }
 
 #music-control {
+    position: fixed; /* Vẫn giữ cố định khi cuộn */
+    bottom: 1rem;
+    left: 1rem;
+    font-size: 2rem;
+    color: rgb(190 18 60);
     z-index: 1000;
     transition: transform 0.2s ease, color 0.3s ease;
-    position: relative;
-    color: rgb(190 18 60);
+    cursor: pointer;
+
+    /* Đây là điểm quan trọng */
+    display: inline-block;
 }
 
 #music-control:hover {
@@ -188,16 +195,15 @@ body {
 
 #music-control.paused::after {
     content: '';
-    position: absolute;
+    position: absolute; /* so với chính nó */
     top: 50%;
-    left: 10%;
-    width: 80%;
+    left: 50%;
+    width: 110%;
     height: 2px;
     background-color: currentColor;
-    transform: rotate(-45deg) translateY(-50%);
+    transform: translate(-50%, -50%) rotate(-45deg);
     transform-origin: center;
     pointer-events: none;
-    transition: background-color 0.3s ease;
 }
 
 #music-control.paused:hover::after {
