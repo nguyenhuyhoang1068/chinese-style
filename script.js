@@ -20,6 +20,7 @@ async function loadContent() {
 
 function renderContent(content) {
     // Header
+    document.getElementById('page-title').textContent = content.title;
     document.getElementById('header-title').textContent = content.header.title;
     document.getElementById('header-couple').textContent = content.header.couple;
     document.getElementById('header-day').textContent = content.header.day;
@@ -68,6 +69,9 @@ function renderContent(content) {
     document.getElementById('location-text').textContent = content.invitation.locationText;
     document.getElementById('venue').textContent = content.invitation.venue;
     document.getElementById('address').textContent = content.invitation.address;
+    const mapButton = document.querySelector('.wedding-button[href]');
+    const mapQuery = encodeURIComponent(content.invitation.address);
+    mapButton.href = `https://www.google.com/maps/search/?api=1&query=${mapQuery}&origin=${encodeURIComponent(window.location.href)}`;
 
     // Calendar
     const calendarDateStr = content.dateSection.calendar; // "18-10-2025"
