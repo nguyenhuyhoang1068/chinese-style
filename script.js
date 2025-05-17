@@ -1,135 +1,155 @@
 document.addEventListener('DOMContentLoaded', initialize);
 
 async function initialize() {
-    await loadContent();
-    setupRsvpForm();
-    setupScrollAnimations();
-    setupMusicControl();
-}
-
-async function loadContent() {
     try {
-        const response = await fetch('./content.json');
-        if (!response.ok) throw new Error(`Không thể tải content.json: ${response.statusText}`);
-        const content = await response.json();
-        renderContent(content);
+        await loadContent();
+        setupRsvpForm();
+        setupScrollAnimations();
+        setupMusicControl();
+        setupScrollUpDown();
     } catch (error) {
-        console.error('Lỗi khi tải nội dung:', error);
-        showMessage('Không thể tải nội dung thiệp mời. Vui lòng thử lại sau.', 'text-red-600');
+        console.error('Initialization failed:', error);
+        showMessage('Khởi tạo thất bại. Vui lòng thử lại sau.', 'text-red-600');
     }
 }
 
+async function loadContent() {
+    const response = await fetch('./content.json');
+    if (!response.ok) {
+        throw new Error(`Không thể tải content.json: ${response.statusText}`);
+    }
+    const content = await response.json();
+    renderContent(content);
+}
+
 function renderContent(content) {
-    // Header
-    document.getElementById('page-title').textContent = content.title;
-    document.getElementById('header-title').textContent = content.header.title;
-    document.getElementById('header-couple').textContent = content.header.couple;
-    document.getElementById('header-day').textContent = content.header.day;
-    document.getElementById('header-date').textContent = content.header.date;
+    const elements = {
+        'page-title': content.title,
+        'header-title': content.header.title,
+        'header-couple': content.header.couple,
+        'header-day': content.header.day,
+        'header-date': content.header.date,
+        'groom-title': content.family.groom.title,
+        'groom-father': content.family.groom.father,
+        'groom-mother': content.family.groom.mother,
+        'groom-location': content.family.groom.location,
+        'bride-title': content.family.bride.title,
+        'bride-father': content.family.bride.father,
+        'bride-mother': content.family.bride.mother,
+        'bride-location': content.family.bride.location,
+        'announcement-text': content.announcement.text,
+        'announcement-groom': content.announcement.groom,
+        'announcement-bride': content.announcement.bride,
+        'invite-text': content.invitation.inviteText,
+        'event-text': content.invitation.eventText,
+        'time-label': content.invitation.timeLabel,
+        'time': content.invitation.time,
+        'date': content.invitation.date,
+        'lunar-date': `(${content.invitation.lunarDate})`,
+        'location-text': content.invitation.locationText,
+        'venue': content.invitation.venue,
+        'address': content.invitation.address,
+        'month-year': content.dateSection.monthYear,
+        'rsvp-title': content.rsvp.title,
+        'name-label': content.rsvp.nameLabel,
+        'name': { placeholder: content.rsvp.namePlaceholder },
+        'relationship-label': content.rsvp.relationshipLabel,
+        'relationship': { placeholder: content.rsvp.relationshipPlaceholder },
+        'message-label': content.rsvp.messageLabel,
+        'message': { placeholder: content.rsvp.messagePlaceholder },
+        'attendance-label': content.rsvp.attendanceLabel,
+        'submit-rsvp': content.rsvp.submitButton,
+        'gift-text': content.rsvp.giftText,
+        'album-title': content.album.title,
+        'thank-you': content.footer.thankYou,
+        'welcome': content.footer.welcome
+    };
 
-    // Main Image
-    const mainImage = document.getElementById('main-image');
-    mainImage.src = content.mainImage.src;
-    mainImage.alt = content.mainImage.alt;
-
-    // Family
-    document.getElementById('groom-title').textContent = content.family.groom.title;
-    document.getElementById('groom-father').textContent = content.family.groom.father;
-    document.getElementById('groom-mother').textContent = content.family.groom.mother;
-    document.getElementById('groom-location').textContent = content.family.groom.location;
-    document.getElementById('bride-title').textContent = content.family.bride.title;
-    document.getElementById('bride-father').textContent = content.family.bride.father;
-    document.getElementById('bride-mother').textContent = content.family.bride.mother;
-    document.getElementById('bride-location').textContent = content.family.bride.location;
-
-    // Announcement
-    document.getElementById('announcement-text').textContent = content.announcement.text;
-    document.getElementById('announcement-groom').textContent = content.announcement.groom;
-    document.getElementById('announcement-bride').textContent = content.announcement.bride;
-
-    // Secondary Image
-    const secondaryImage = document.getElementById('secondary-image');
-    secondaryImage.src = content.secondaryImage.src;
-    secondaryImage.alt = content.secondaryImage.alt;
-
-    // Invitation
-    document.getElementById('invite-text').textContent = content.invitation.inviteText;
-    const smallImagesContainer = document.getElementById('small-images');
-    content.invitation.smallImages.forEach((image, index) => {
-        const img = document.createElement('img');
-        img.src = image.src;
-        img.alt = image.alt;
-        img.className = `w-1/3 h-25 object-contain animation-trigger animation-${index === 0 ? 'slide-in-left animation-float-up-down mt-20' : index === 2 ? 'slide-in-right animation-float-up-down mt-20' : 'float-up-down'}`;
-        smallImagesContainer.appendChild(img);
+    // Update text content and placeholders
+    Object.entries(elements).forEach(([id, value]) => {
+        const element = document.getElementById(id);
+        if (element) {
+            if (typeof value === 'string') {
+                element.textContent = value;
+            } else if (value.placeholder) {
+                element.placeholder = value.placeholder;
+            }
+        }
     });
-    document.getElementById('event-text').textContent = content.invitation.eventText;
-    document.getElementById('time-label').textContent = content.invitation.timeLabel;
-    document.getElementById('time').textContent = content.invitation.time;
-    document.getElementById('date').textContent = content.invitation.date;
-    document.getElementById('lunar-date').textContent = `(${content.invitation.lunarDate})`;
-    document.getElementById('location-text').textContent = content.invitation.locationText;
-    document.getElementById('venue').textContent = content.invitation.venue;
-    document.getElementById('address').textContent = content.invitation.address;
+
+    // Images
+    const images = {
+        'main-image': content.mainImage,
+        'secondary-image': content.secondaryImage,
+        'blurred-image': content.album.blurredImage
+    };
+
+    Object.entries(images).forEach(([id, { src, alt }]) => {
+        const img = document.getElementById(id);
+        if (img) {
+            img.src = src;
+            img.alt = alt;
+        }
+    });
+
+    // Small images
+    const smallImagesContainer = document.getElementById('small-images');
+    if (smallImagesContainer) {
+        content.invitation.smallImages.forEach((image, index) => {
+            const img = document.createElement('img');
+            img.src = image.src;
+            img.alt = image.alt;
+            img.className = `w-1/3 h-25 object-contain animation-trigger animation-${
+                index === 0 ? 'slide-in-left animation-float-up-down mt-20' :
+                index === 2 ? 'slide-in-right animation-float-up-down mt-20' :
+                'float-up-down'
+            }`;
+            smallImagesContainer.appendChild(img);
+        });
+    }
+
+    // Map button
     const mapButton = document.querySelector('.wedding-button[href]');
-    const mapQuery = encodeURIComponent(content.invitation.address);
-    mapButton.href = `https://www.google.com/maps/search/?api=1&query=${mapQuery}&origin=${encodeURIComponent(window.location.href)}`;
+    if (mapButton) {
+        const mapQuery = encodeURIComponent(content.invitation.address);
+        mapButton.href = `https://www.google.com/maps/search/?api=1&query=${mapQuery}&origin=${encodeURIComponent(window.location.href)}`;
+    }
 
     // Calendar
-    const calendarDateStr = content.dateSection.calendar; // "18-10-2025"
-    const [dayStr, monthStr, yearStr] = calendarDateStr.split('-'); // ['18', '10', '2025']
+    const [dayStr, monthStr, yearStr] = content.dateSection.calendar.split('-');
     const weddingDay = parseInt(dayStr, 10);
     const month = parseInt(monthStr, 10);
     const year = parseInt(yearStr, 10);
-
-    document.getElementById('month-year').textContent = content.dateSection.monthYear;
     const calendarContainer = document.getElementById('calendar');
-    calendarContainer.innerHTML = generateCalendar(year, month, weddingDay);
+    if (calendarContainer) {
+        calendarContainer.innerHTML = generateCalendar(year, month, weddingDay);
+    }
 
-    // RSVP
-    document.getElementById('rsvp-title').textContent = content.rsvp.title;
-    document.getElementById('name-label').textContent = content.rsvp.nameLabel;
-    document.getElementById('name').placeholder = content.rsvp.namePlaceholder;
-    document.getElementById('relationship-label').textContent = content.rsvp.relationshipLabel;
-    document.getElementById('relationship').placeholder = content.rsvp.relationshipPlaceholder;
-    document.getElementById('message-label').textContent = content.rsvp.messageLabel;
-    document.getElementById('message').placeholder = content.rsvp.messagePlaceholder;
-    document.getElementById('attendance-label').textContent = content.rsvp.attendanceLabel;
-    document.getElementById('submit-rsvp').textContent = content.rsvp.submitButton;
-    document.getElementById('gift-text').textContent = content.rsvp.giftText;
-
-    // Album
-    document.getElementById('album-title').textContent = content.album.title;
+    // Album images
     const albumImagesContainer = document.getElementById('album-images');
-    content.album.images.forEach((image, index) => {
-        const img = document.createElement('img');
-        img.src = image.src;
-        img.alt = image.alt;
-        img.className = `h-40 object-contain animation-trigger animation-${index % 2 === 0 ? 'slide-in-left' : 'slide-in-right'}`;
-        if (index % 2 === 0) {
-            img.style.justifySelf = 'end';
-        } else {
-            img.style.justifySelf = 'start';
-        }
-        albumImagesContainer.appendChild(img);
-    });
-    const blurredImage = document.getElementById('blurred-image');
-    blurredImage.src = content.album.blurredImage.src;
-    blurredImage.alt = content.album.blurredImage.alt;
-
-    // Footer
-    document.getElementById('thank-you').textContent = content.footer.thankYou;
-    document.getElementById('welcome').textContent = content.footer.welcome;
+    if (albumImagesContainer) {
+        content.album.images.forEach((image, index) => {
+            const img = document.createElement('img');
+            img.src = image.src;
+            img.alt = image.alt;
+            img.className = `h-40 object-contain animation-trigger animation-${
+                index % 2 === 0 ? 'slide-in-left' : 'slide-in-right'
+            }`;
+            img.style.justifySelf = index % 2 === 0 ? 'end' : 'start';
+            albumImagesContainer.appendChild(img);
+        });
+    }
 
     // Music
     const audio = document.getElementById('wedding-music');
-    audio.src = content.music.src;
+    if (audio) {
+        audio.src = content.music.src;
+    }
 }
 
 function generateCalendar(year, month, weddingDay) {
     const daysInMonth = new Date(year, month, 0).getDate();
-    let firstDay = new Date(year, month - 1, 1).getDay();
-    firstDay = (firstDay === 0) ? 6 : firstDay - 1; // Chuyển Chủ Nhật về cuối tuần
-
+    const firstDay = ((new Date(year, month - 1, 1).getDay() + 6) % 7); // Adjust Sunday to end
     const days = ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'];
 
     let calendarHTML = `
@@ -141,73 +161,68 @@ function generateCalendar(year, month, weddingDay) {
     `;
 
     let day = 1;
-    while (day <= daysInMonth) {
+    for (let i = 0; i < 6 && day <= daysInMonth; i++) {
         calendarHTML += '<tr>';
         for (let j = 0; j < 7; j++) {
             if ((day === 1 && j < firstDay) || day > daysInMonth) {
                 calendarHTML += '<td class="empty"></td>';
             } else {
-                const isWeddingDay = day === weddingDay ? 'wedding-day' : '';
-                calendarHTML += `<td class="${isWeddingDay}"><span>${day}</span></td>`;
+                calendarHTML += `<td class="${day === weddingDay ? 'wedding-day' : ''}"><span>${day}</span></td>`;
                 day++;
             }
         }
         calendarHTML += '</tr>';
     }
 
-    calendarHTML += '</tbody></table>';
-    return calendarHTML;
+    return calendarHTML + '</tbody></table>';
 }
 
 function setupRsvpForm() {
     const submitButton = document.getElementById('submit-rsvp');
-    if (submitButton) {
-        submitButton.addEventListener('click', handleRsvpSubmit);
-    }
+    submitButton?.addEventListener('click', handleRsvpSubmit);
 }
 
 function handleRsvpSubmit() {
-    const name = document.getElementById('name').value.trim();
-    const relationship = document.getElementById('relationship').value.trim();
-    const message = document.getElementById('message').value.trim();
-    const attendance = document.getElementById('attendance').value;
+    const inputs = {
+        name: document.getElementById('name').value.trim(),
+        relationship: document.getElementById('relationship').value.trim(),
+        message: document.getElementById('message').value.trim(),
+        attendance: document.getElementById('attendance').value
+    };
 
-    if (!name || !relationship || !message) {
+    if (!inputs.name || !inputs.relationship || !inputs.message) {
         showMessage('Vui lòng điền đầy đủ thông tin.', 'text-red-600');
         return;
     }
 
-    const rsvpData = {
-        name,
-        relationship,
-        message,
-        attendance
-    };
-
-    console.log('RSVP Data:', rsvpData);
+    console.log('RSVP Data:', inputs);
     showMessage('Cảm ơn bạn đã xác nhận tham dự!', 'text-green-600');
     clearForm();
 }
 
 function showMessage(text, className) {
     const formMessage = document.getElementById('form-message');
-    formMessage.textContent = text;
-    formMessage.className = `mt-2 text-sm ${className}`;
-    formMessage.classList.remove('hidden');
+    if (formMessage) {
+        formMessage.textContent = text;
+        formMessage.className = `mt-2 text-sm ${className}`;
+        formMessage.classList.remove('hidden');
+    }
 }
 
 function clearForm() {
-    document.getElementById('name').value = '';
-    document.getElementById('relationship').value = '';
-    document.getElementById('message').value = '';
-    document.getElementById('attendance').value = 'yes';
+    ['name', 'relationship', 'message'].forEach(id => {
+        const input = document.getElementById(id);
+        if (input) input.value = '';
+    });
+    const attendance = document.getElementById('attendance');
+    if (attendance) attendance.value = 'yes';
 }
 
 function setupMusicControl() {
     const audio = document.getElementById('wedding-music');
     const musicControl = document.getElementById('music-control');
+    if (!audio || !musicControl) return;
 
-    // Pointerdown
     const enableAudio = () => {
         if (audio.paused) {
             audio.play().then(() => {
@@ -222,7 +237,6 @@ function setupMusicControl() {
 
     document.addEventListener('pointerdown', enableAudio);
 
-    // Play/pause
     musicControl.addEventListener('click', () => {
         if (audio.paused) {
             audio.play().then(() => {
@@ -240,26 +254,55 @@ function setupMusicControl() {
     });
 }
 
+function setupScrollUpDown() {
+    const scrollBtn = document.getElementById('scroll-toggle');
+    if (!scrollBtn) return;
+
+    let atTop = true;
+
+    const updateIcon = () => {
+        const scrollY = window.scrollY;
+        const isBottom = scrollY + window.innerHeight >= document.body.scrollHeight - 100;
+        const isTop = scrollY <= 100;
+
+        if (isBottom && atTop) {
+            atTop = false;
+            scrollBtn.classList.replace('ph-arrow-circle-down', 'ph-arrow-circle-up');
+        } else if (isTop && !atTop) {
+            atTop = true;
+            scrollBtn.classList.replace('ph-arrow-circle-up', 'ph-arrow-circle-down');
+        }
+    };
+
+    scrollBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: atTop ? document.body.scrollHeight : 0,
+            behavior: 'smooth'
+        });
+    });
+
+    window.addEventListener('scroll', updateIcon);
+    updateIcon();
+}
+
 function setupScrollAnimations() {
-    const elements = document.querySelectorAll('.animation-trigger');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                const animationType = entry.target.classList.contains('animation-fade-in') ? 'animation-fade-in' :
-                    entry.target.classList.contains('animation-slide-in-left') ? 'animation-slide-in-left' :
-                        entry.target.classList.contains('animation-slide-in-right') ? 'animation-slide-in-right' : '';
-                if (animationType) {
-                    entry.target.classList.add(animationType);
-                    entry.target.classList.remove('animation-hidden');
-                    observer.unobserve(entry.target); // Stop observing after animation
+                const classes = entry.target.classList;
+                const animation = classes.contains('animation-fade-in') ? 'animation-fade-in' :
+                                classes.contains('animation-slide-in-left') ? 'animation-slide-in-left' :
+                                classes.contains('animation-slide-in-right') ? 'animation-slide-in-right' : '';
+                if (animation) {
+                    classes.add(animation);
+                    classes.remove('animation-hidden');
+                    observer.unobserve(entry.target);
                 }
             }
         });
-    }, {
-        threshold: 0.01 // Trigger when 20% of element is visible
-    });
+    }, { threshold: 0.01 });
 
-    elements.forEach(element => {
+    document.querySelectorAll('.animation-trigger').forEach(element => {
         element.classList.add('animation-hidden');
         observer.observe(element);
     });

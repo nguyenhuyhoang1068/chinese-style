@@ -210,6 +210,23 @@ body {
     background-color: currentColor;
 }
 
+/* Scroll Up/Down Icon Styles */
+#scroll-toggle {
+    position: fixed;
+    bottom: 1rem;   /* ~ Tailwind: bottom-4 */
+    right: 1rem;    /* ~ Tailwind: right-4 */
+    font-size: 2.25rem; /* text-4xl */
+    color: rgb(190, 18, 60);
+    cursor: pointer;
+    z-index: 50;
+    transition: transform 0.3s ease;
+}
+
+#scroll-toggle:hover {
+    transform: scale(1.2);
+    color: rgb(100, 1, 21);
+}
+
 /* Animation keyframes */
 @keyframes fadeIn {
     from {
