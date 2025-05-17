@@ -151,11 +151,12 @@ body {
     0%,
     100% {
         transform: translateY(0);
+        opacity: 1;
     }
 
     50% {
         transform: translateY(-10px);
-        /* Di chuyển lên 10px */
+        opacity: 1;
     }
 }
 
@@ -186,4 +187,9 @@ body {
 
 .animation-float-up-down {
     animation: floatUpDown 2s ease-in-out infinite;
+}
+
+.animation-hidden {
+    opacity: 0;
+    pointer-events: none;
 }
