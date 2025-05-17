@@ -1,0 +1,113 @@
+{
+    "header": {
+        "title": "THIỆP MỜI",
+        "couple": "Huy Hoàng - Kim Thoa",
+        "day": "THỨ 7 - 10H00",
+        "date": "15.10.2025"
+    },
+    "mainImage": {
+        "src": "assets/images/main-couple.jpg",
+        "alt": "Cô dâu chú rể đứng thẳng"
+    },
+    "family": {
+        "groom": {
+            "title": "NHÀ TRAI",
+            "father": "ÔNG NGUYỄN QUỐC TRƯỞNG",
+            "mother": "BÀ NGUYỄN THỊ LIÊN",
+            "location": "PHAN THIẾT, BÌNH THUẬN"
+        },
+        "bride": {
+            "title": "NHÀ GÁI",
+            "father": "ÔNG HỒ SĨ THUẬT",
+            "mother": "BÀ ĐỖ THỊ DƯ",
+            "location": "QUI NHƠN, BÌNH ĐỊNH"
+        }
+    },
+    "announcement": {
+        "text": "Trân Trọng Báo Tin Lễ Thành Hôn Của",
+        "groom": "Nguyễn Huy Hoàng",
+        "bride": "Hồ Thị Kim Thoa"
+    },
+    "secondaryImage": {
+        "src": "assets/images/toasting-couple.jpg",
+        "alt": "Cô dâu chú rể cạn ly, cười"
+    },
+    "invitation": {
+        "inviteText": "Trân Trọng Kính Mời",
+        "smallImages": [
+            {
+                "src": "assets/images/small-couple-left.jpg",
+                "alt": "Cô dâu chú rể nhỏ - trái"
+            },
+            {
+                "src": "assets/images/small-couple-center.jpg",
+                "alt": "Cô dâu chú rể nhỏ - giữa"
+            },
+            {
+                "src": "assets/images/small-couple-right.jpg",
+                "alt": "Cô dâu chú rể nhỏ - phải"
+            }
+        ],
+        "eventText": "THAM DỰ TIỆC MỪNG LỄ THÀNH HÔN",
+        "timeLabel": "Vào lúc",
+        "time": "10 giờ 00",
+        "date": "Thứ 7, 15 Tháng 10, Năm 2025",
+        "lunarDate": "Tức ngày 18 tháng 09 năm Ất Tỵ",
+        "locationText": "BUỔI TIỆC ĐƯỢC TỔ CHỨC TẠI",
+        "venue": "BINH MINH RESTAURANT - HOTEL",
+        "address": "20 Đồi Dương, Phường Hưng Long, Phan Thiết, Bình Thuận"
+    },
+    "dateSection": {
+        "monthYear": "THÁNG 05 - 2025",
+        "calendar": "Lịch Dương"
+    },
+    "rsvp": {
+        "title": "XÁC NHẬN THAM DỰ & GỬI LỜI CHÚC",
+        "nameLabel": "Tên của bạn là gì?",
+        "namePlaceholder": "Nhập tên của bạn",
+        "relationshipLabel": "Bạn là gì của dâu rể nhỉ?",
+        "relationshipPlaceholder": "Quan hệ với dâu rể",
+        "messageLabel": "Gửi lời chúc đến dâu rể nhé!",
+        "messagePlaceholder": "Lời chúc của bạn",
+        "attendanceLabel": "Bạn có tham dự không?",
+        "submitButton": "GỬI NGAY",
+        "giftText": "GỬI MỪNG CƯỚI"
+    },
+    "album": {
+        "title": "Album hình cưới",
+        "images": [
+            {
+                "src": "assets/images/album-1-left.jpg",
+                "alt": "Hình cưới 1 - trái"
+            },
+            {
+                "src": "assets/images/album-1-right.jpg",
+                "alt": "Hình cưới 1 - phải"
+            },
+            {
+                "src": "assets/images/album-2-left.jpg",
+                "alt": "Hình cưới 2 - trái"
+            },
+            {
+                "src": "assets/images/album-2-right.jpg",
+                "alt": "Hình cưới 2 - phải"
+            },
+            {
+                "src": "assets/images/album-3-left.jpg",
+                "alt": "Hình cưới 3 - trái"
+            },
+            {
+                "src": "assets/images/album-3-right.jpg",
+                "alt": "Hình cưới 3 - phải"
+            }
+        ],
+        "blurredImage": {
+            "src": "assets/images/blurred-couple.jpg",
+            "alt": "Hình dâu rể làm mờ"
+        }
+    },
+    "footer": {
+        "thankYou": "Thank you!",
+        "welcome": "Rất hân hạnh được đón tiếp."
+    }
+}
