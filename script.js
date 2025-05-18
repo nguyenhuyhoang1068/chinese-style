@@ -305,22 +305,22 @@ function setupAnimations() {
         // Define animation attribute based on data-animate
         switch (animationType) {
             case 'fade-in':
-                animationProps = { opacity: 0.2, y: 0 };
+                animationProps = { opacity: 0, y: 0 };
                 break;
             case 'fade-up':
-                animationProps = { opacity: 0.2, y: 50 };
+                animationProps = { opacity: 0, y: 50 };
                 break;
             case 'slide-left':
-                animationProps = { opacity: 0.2, x: -100 };
+                animationProps = { opacity: 0, x: -100 };
                 break;
             case 'slide-right':
-                animationProps = { opacity: 0.2, x: 100 };
+                animationProps = { opacity: 0, x: 100 };
                 break;
             case 'zoom-in':
-                animationProps = { opacity: 0.2, scale: 0.8 };
+                animationProps = { opacity: 0, scale: 0.8 };
                 break;
             default:
-                animationProps = { opacity: 0.5 };
+                animationProps = { opacity: 0 };
         }
 
         // Establish GSAP animation
