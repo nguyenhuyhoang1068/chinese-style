@@ -334,11 +334,11 @@ function setupAnimations() {
                 scale: 1,
                 duration: 2,
                 ease: 'cubic-bezier(0.33,0,0.22,1)',
-                delay: index * 0.1, 
+                delay: index * 0.15, 
                 scrollTrigger: {
                     trigger: el,
-                    start: 'top 90%',
-                    end: 'bottom 10%',
+                    start: 'top 100%',
+                    end: 'bottom 0%',
                     toggleActions: 'play reverse play reverse',
                     markers: false
                 }
