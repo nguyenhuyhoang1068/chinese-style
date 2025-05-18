@@ -4,12 +4,18 @@ async function initialize() {
     try {
         await loadContent();
         setupRsvpForm();
-        setupScrollAnimations();
         setupMusicControl();
         setupScrollUpDown();
+        // Register ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger);
+        setupAnimations();
     } catch (error) {
         console.error('Initialization failed:', error);
         showMessage('Khởi tạo thất bại. Vui lòng thử lại sau.', 'text-red-600');
+        document.querySelectorAll('.animate-element').forEach(el => {
+            el.style.opacity = 1;
+            el.style.transform = 'none';
+        });
     }
 }
 
@@ -99,11 +105,17 @@ function renderContent(content) {
             const img = document.createElement('img');
             img.src = image.src;
             img.alt = image.alt;
-            img.className = `w-1/3 h-25 object-contain animation-trigger animation-${
-                index === 0 ? 'slide-in-left animation-float-up-down mt-20' :
-                index === 2 ? 'slide-in-right animation-float-up-down mt-20' :
-                'float-up-down'
-            }`;
+            img.className = 'w-1/3 h-25 object-contain animate-element';
+            if (index === 0) {
+                img.dataset.animate = 'slide-left';
+            } else if (index === 2) {
+                img.dataset.animate = 'slide-right';
+            } else {
+                img.dataset.animate = 'fade-up'; 
+            }
+            if (index !== 1) {
+                img.classList.add('mt-20');
+            }
             smallImagesContainer.appendChild(img);
         });
     }
@@ -132,9 +144,8 @@ function renderContent(content) {
             const img = document.createElement('img');
             img.src = image.src;
             img.alt = image.alt;
-            img.className = `h-40 object-contain animation-trigger animation-${
-                index % 2 === 0 ? 'slide-in-left' : 'slide-in-right'
-            }`;
+            img.className = 'h-40 object-contain animate-element';
+            img.dataset.animate = index % 2 === 0 ? 'slide-left' : 'slide-right';
             img.style.justifySelf = index % 2 === 0 ? 'end' : 'start';
             albumImagesContainer.appendChild(img);
         });
@@ -285,25 +296,53 @@ function setupScrollUpDown() {
     updateIcon();
 }
 
-function setupScrollAnimations() {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const classes = entry.target.classList;
-                const animation = classes.contains('animation-fade-in') ? 'animation-fade-in' :
-                                classes.contains('animation-slide-in-left') ? 'animation-slide-in-left' :
-                                classes.contains('animation-slide-in-right') ? 'animation-slide-in-right' : '';
-                if (animation) {
-                    classes.add(animation);
-                    classes.remove('animation-hidden');
-                    observer.unobserve(entry.target);
+function setupAnimations() {
+    const elements = document.querySelectorAll('.animate-element');
+    elements.forEach((el, index) => {
+        const animationType = el.dataset.animate;
+        let animationProps = {};
+
+        // Define animation attribute based on data-animate
+        switch (animationType) {
+            case 'fade-in':
+                animationProps = { opacity: 0, y: 0 };
+                break;
+            case 'fade-up':
+                animationProps = { opacity: 0, y: 50 };
+                break;
+            case 'slide-left':
+                animationProps = { opacity: 0, x: -100 };
+                break;
+            case 'slide-right':
+                animationProps = { opacity: 0, x: 100 };
+                break;
+            case 'zoom-in':
+                animationProps = { opacity: 0, scale: 0.8 };
+                break;
+            default:
+                animationProps = { opacity: 0 };
+        }
+
+        // Establish GSAP animation
+        gsap.fromTo(
+            el,
+            animationProps,
+            {
+                opacity: 1,
+                x: 0,
+                y: 0,
+                scale: 1,
+                duration: 1,
+                ease: 'cubic-bezier(0.33,0,0.22,1)',
+                delay: index * 0.2, 
+                scrollTrigger: {
+                    trigger: el,
+                    start: 'top 80%',
+                    end: 'bottom 20%',
+                    toggleActions: 'play reverse play reverse',
+                    markers: false
                 }
             }
-        });
-    }, { threshold: 0.01 });
-
-    document.querySelectorAll('.animation-trigger').forEach(element => {
-        element.classList.add('animation-hidden');
-        observer.observe(element);
+        );
     });
 }

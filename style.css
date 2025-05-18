@@ -227,125 +227,32 @@ body {
     color: rgb(100, 1, 21);
 }
 
-/* Animation keyframes */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
+/* Animation */
+.wedding-section {
+    /* padding: 50px 20px; */
+    /* min-height: 100vh; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-@keyframes fadeInUp {
-    from {
-        transform: translateY(20px);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
+.family-info {
+    display: flex;
+    justify-content: space-between;
+    max-width: 800px;
+    width: 100%;
+    /* margin: 20px auto; */
 }
 
-@keyframes slideInLeft {
-    from {
-        transform: translateX(-100%);
-        opacity: 0;
-    }
+/* .family-info div {
+    width: 45%;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+} */
 
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-@keyframes slideInRight {
-    from {
-        transform: translateX(100%);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-@keyframes popIn {
-    0% {
-        transform: scale(0.6);
-        opacity: 0;
-    }
-
-    80% {
-        transform: scale(1.05);
-        opacity: 1;
-    }
-
-    100% {
-        transform: scale(1);
-    }
-}
-
-@keyframes pulseZoom {
-
-    0%,
-    100% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.03);
-    }
-}
-
-@keyframes floatUpDown {
-
-    0%,
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-
-    50% {
-        transform: translateY(-10px);
-        opacity: 1;
-    }
-}
-
-/* Animation classes */
-.animation-fade-in {
-    animation: fadeIn 3s ease-in-out;
-}
-
-.animation-fade-in-up {
-    animation: fadeInUp 3s ease-out;
-}
-
-.animation-slide-in-left {
-    animation: slideInLeft 3s ease-in-out;
-}
-
-.animation-slide-in-right {
-    animation: slideInRight 3s ease-in-out;
-}
-
-.animation-pop-in {
-    animation: popIn 3s ease-out;
-}
-
-.animation-pulse-zoom {
-    animation: pulseZoom 3s ease-in-out infinite;
-}
-
-.animation-float-up-down {
-    animation: floatUpDown 2s ease-in-out infinite;
-}
-
-.animation-hidden {
+.animate-element {
     opacity: 0;
-    pointer-events: none;
+    will-change: transform, opacity;
 }

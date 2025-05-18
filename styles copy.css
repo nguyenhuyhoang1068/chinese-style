@@ -1,0 +1,51 @@
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f1f1;
+    color: #4a4a4a;
+    text-align: center;
+    line-height: 1.6;
+}
+
+.wedding-section {
+    padding: 50px 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1, h2 {
+    font-family: 'Great Vibes', cursive;
+    color: #d4a5a5;
+    font-size: 3.5rem;
+    margin: 20px 0;
+}
+
+p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 10px auto;
+}
+
+.family-info {
+    display: flex;
+    justify-content: space-between;
+    max-width: 800px;
+    width: 100%;
+    margin: 20px auto;
+}
+
+.family-info div {
+    width: 45%;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+}
+
+/* Ẩn ban đầu cho GSAP */
+.animate-element {
+    opacity: 0;
+    will-change: transform, opacity;
+}
