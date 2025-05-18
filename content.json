@@ -112,8 +112,8 @@
         "welcome": "Rất hân hạnh được đón tiếp."
     },
     "music": {
-        "title": "Beautiful In White",
-        "artist": "Westlife",
-        "src": "assets/music/Westlife-BeautifulInWhite.mp3"
+        "title": "A Thousand Years",
+        "artist": "Cover",
+        "src": "assets/music/AThousandYears-Cover.mp3"
     }
 }
