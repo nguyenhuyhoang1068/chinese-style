@@ -256,3 +256,21 @@ body {
     opacity: 0;
     will-change: transform, opacity;
 }
+
+@keyframes floatUpDown {
+
+    0%,
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    50% {
+        transform: translateY(-10px);
+        opacity: 1;
+    }
+}
+
+.animation-float-up-down {
+    animation: floatUpDown 2s ease-in-out infinite;
+}
