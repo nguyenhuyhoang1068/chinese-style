@@ -334,7 +334,7 @@ function setupAnimations() {
                 scale: 1,
                 duration: 2,
                 ease: 'cubic-bezier(0.33,0,0.22,1)',
-                delay: index * 0.15, 
+                delay: index * 0.18, 
                 scrollTrigger: {
                     trigger: el,
                     start: 'top 100%',
