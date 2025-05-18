@@ -337,8 +337,8 @@ function setupAnimations() {
                 delay: index * 0.2, 
                 scrollTrigger: {
                     trigger: el,
-                    start: 'top 100%',
-                    end: 'bottom 0%',
+                    start: 'top 95%',
+                    end: 'bottom 5%',
                     toggleActions: 'play reverse play reverse',
                     markers: false
                 }
