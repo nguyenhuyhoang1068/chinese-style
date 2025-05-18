@@ -339,7 +339,7 @@ function setupAnimations() {
                     trigger: el,
                     start: 'top 95%',
                     end: 'bottom 5%',
-                    toggleActions: 'play none reverse none',
+                    toggleActions: 'play reverse play reverse',
                     markers: false
                 }
             }
