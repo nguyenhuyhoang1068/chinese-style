@@ -56,6 +56,7 @@ function renderContent(content) {
         'venue': content.invitation.venue,
         'street-address': content.invitation.streetAddress,
         'city-province': content.invitation.cityProvince,
+        'map-button': content.invitation.mapButton,
         'month-year': content.dateSection.monthYear,
         'rsvp-title': content.rsvp.title,
         'name-label': content.rsvp.nameLabel,
@@ -87,6 +88,7 @@ function renderContent(content) {
     // Images
     const images = {
         'main-image': content.mainImage,
+        'lantern-image': content.lanternImage,
         'secondary-image': content.secondaryImage,
         'blurred-image': content.album.blurredImage
     };
@@ -339,10 +341,10 @@ function setupAnimations() {
                 delay: index * 0.1, 
                 scrollTrigger: {
                     trigger: el,
-                    start: 'top 100%',
+                    start: 'top 50%',
                     end: 'bottom 0%',
                     toggleActions: 'play none none none',
-                    markers: false
+                    markers: true
                 }
             }
         );

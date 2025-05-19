@@ -10,6 +10,10 @@
         "src": "assets/images/main-couple.jpg",
         "alt": "Cô dâu chú rể đứng thẳng"
     },
+    "lanternImage": {
+        "src": "assets/images/lantern.png",
+        "alt": "Lồng đèn"
+    },
     "family": {
         "groom": {
             "title": "NHÀ TRAI",
@@ -57,7 +61,8 @@
         "locationText": "BUỔI TIỆC ĐƯỢC TỔ CHỨC TẠI",
         "venue": "BINH MINH RESTAURANT - HOTEL",
         "streetAddress": "211 Lê Lợi, Phường Hưng Long",
-        "cityProvince": "Phan Thiết, Bình Thuận"
+        "cityProvince": "Phan Thiết, Bình Thuận",
+        "mapButton": "Xem chỉ đường"
     },
     "dateSection": {
         "monthYear": "Tháng 10 - 2025",
