@@ -69,6 +69,11 @@ body {
     right: -39px;
 }
 
+#submit-rsvp:hover{
+    background-color: rgb(190 18 60 / var(--tw-text-opacity, 1));
+    color: white;
+}
+
 /* Wedding Button Styles */
 .wedding-button {
     font-family: 'Roboto', sans-serif;
