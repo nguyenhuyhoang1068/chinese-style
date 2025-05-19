@@ -340,7 +340,7 @@ function setupAnimations() {
                 scrollTrigger: {
                     trigger: el,
                     start: 'top 95%',
-                    once: true,
+                    end: 'bottom 5%',
                     toggleActions: 'play none none none',
                     markers: false
                 }
