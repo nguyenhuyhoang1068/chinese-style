@@ -54,7 +54,8 @@ function renderContent(content) {
         'lunar-date': `(${content.invitation.lunarDate})`,
         'location-text': content.invitation.locationText,
         'venue': content.invitation.venue,
-        'address': content.invitation.address,
+        'street-address': content.invitation.streetAddress,
+        'city-province': content.invitation.cityProvince,
         'month-year': content.dateSection.monthYear,
         'rsvp-title': content.rsvp.title,
         'name-label': content.rsvp.nameLabel,
@@ -123,7 +124,8 @@ function renderContent(content) {
     // Map button
     const mapButton = document.querySelector('.wedding-button[href]');
     if (mapButton) {
-        const mapQuery = encodeURIComponent(content.invitation.address);
+        const fullAddress = `${content.invitation.streetAddress}, ${content.invitation.cityProvince}`;
+        const mapQuery = encodeURIComponent(content.invitation.fullAddress);
         mapButton.href = `https://www.google.com/maps/search/?api=1&query=${mapQuery}&origin=${encodeURIComponent(window.location.href)}`;
     }
 

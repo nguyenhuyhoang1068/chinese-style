@@ -56,7 +56,8 @@
         "lunarDate": "Tức ngày 27 tháng 08 năm Ất Tỵ",
         "locationText": "BUỔI TIỆC ĐƯỢC TỔ CHỨC TẠI",
         "venue": "BINH MINH RESTAURANT - HOTEL",
-        "address": "211 Lê Lợi, Phường Hưng Long, Phan Thiết, Bình Thuận"
+        "streetAddress": "211 Lê Lợi, Phường Hưng Long",
+        "cityProvince": "Thành phố Phan Thiết, tỉnh Bình Thuận"
     },
     "dateSection": {
         "monthYear": "Tháng 10 - 2025",
