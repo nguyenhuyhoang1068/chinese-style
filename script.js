@@ -332,13 +332,13 @@ function setupAnimations() {
                 x: 0,
                 y: 0,
                 scale: 1,
-                duration: 1.5,
+                duration: 1,
                 ease: 'cubic-bezier(0.33,0,0.22,1)',
-                delay: index * 0.2, 
+                delay: index * 0.1, 
                 scrollTrigger: {
                     trigger: el,
                     start: 'top 95%',
-                    end: 'bottom 5%',
+                    once: true,
                     toggleActions: 'play none none none',
                     markers: false
                 }
