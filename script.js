@@ -344,7 +344,7 @@ function setupAnimations() {
                     start: 'top 90%',
                     end: 'bottom 0%',
                     toggleActions: 'play none none none',
-                    markers: true
+                    markers: false
                 }
             }
         );
