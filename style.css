@@ -191,6 +191,11 @@ body {
     border-radius: 8px;
 }
 
+#album-images {
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* Giữ grid 2 cột */
+    gap: 0; /* Xóa khoảng cách ngang và dọc */
+}
+
 /* Music Control Icon Styles */
 #wedding-music {
     display: none;
