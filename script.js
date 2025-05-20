@@ -13,7 +13,7 @@ async function initialize() {
         // Register ScrollTrigger
         gsap.registerPlugin(ScrollTrigger);
         setupAnimations();
-        
+
         window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch (error) {
         console.error('Initialization failed:', error);
@@ -132,8 +132,7 @@ function renderContent(content) {
     // Map button
     const mapButton = document.querySelector('.wedding-button[href]');
     if (mapButton) {
-        const fullAddress = `${content.invitation.streetAddress}, ${content.invitation.cityProvince}`;
-        const mapQuery = encodeURIComponent(content.invitation.fullAddress);
+        const mapQuery = `${content.invitation.streetAddress}, ${content.invitation.cityProvince}`;
         mapButton.href = `https://www.google.com/maps/search/?api=1&query=${mapQuery}&origin=${encodeURIComponent(window.location.href)}`;
     }
 
