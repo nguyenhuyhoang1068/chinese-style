@@ -132,9 +132,13 @@ function renderContent(content) {
     // Map button
     const mapButton = document.querySelector('.wedding-button[href]');
     if (mapButton) {
-        const fullAddress = `${content.invitation.streetAddress}, ${content.invitation.cityProvince}`;
-        const mapQuery = encodeURIComponent(fullAddress);
+        const venue = content.invitation.venue;
+        const address = `${content.invitation.streetAddress}, ${content.invitation.cityProvince}`;
+        const fullQuery = `${venue}, ${address}`;
+        const mapQuery = encodeURIComponent(fullQuery);
+
         mapButton.href = `https://www.google.com/maps/search/?api=1&query=${mapQuery}&origin=${encodeURIComponent(window.location.href)}`;
+
     }
 
     // Calendar
