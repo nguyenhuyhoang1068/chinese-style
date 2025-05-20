@@ -3,14 +3,14 @@ document.addEventListener('DOMContentLoaded', initialize);
 async function initialize() {
     try {
         await loadContent();
-        // Register ScrollTrigger
-        gsap.registerPlugin(ScrollTrigger);
-        setupAnimations();
         setupCurtain();
         setupRsvpForm();
         setupMusicControl();
         setupScrollUpDown();
         setupQrModal();
+        // Register ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger);
+        setupAnimations();
         window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch (error) {
         console.error('Initialization failed:', error);
