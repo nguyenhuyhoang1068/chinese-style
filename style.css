@@ -66,7 +66,7 @@ body {
 
 .logo-placeholder::before {
     content: '囍';
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-family: 'Great Vibes', cursive;
     color: rgb(190 18 60 / var(--tw-text-opacity, 1));
 }
@@ -83,16 +83,15 @@ body {
 
 #main-image {
     max-width: 600px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 20px 10px 20px rgba(113, 4, 4, 0.2);
     border-color: rgb(190 18 60 / var(--tw-text-opacity, 1));
-    ;
 }
 
 .lantern {
-    width: 80px;
-    height: 120px;
-    bottom: -95px;
-    right: -39px;
+    width: 20%; /* Tương đương ~20% chiều rộng container */
+    height: 30%; /* Tương đương ~30% chiều cao container */
+    bottom: -25%; /* Điều chỉnh tỷ lệ */
+    right: -10%; /* Điều chỉnh tỷ lệ */
 }
 
 #submit-rsvp:hover {
