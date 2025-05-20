@@ -9,6 +9,7 @@ async function initialize() {
         // Register ScrollTrigger
         gsap.registerPlugin(ScrollTrigger);
         setupAnimations();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch (error) {
         console.error('Initialization failed:', error);
         showMessage('Khởi tạo thất bại. Vui lòng thử lại sau.', 'text-red-600');
@@ -114,7 +115,7 @@ function renderContent(content) {
             } else if (index === 2) {
                 img.dataset.animate = 'slide-right';
             } else {
-                img.dataset.animate = 'fade-up'; 
+                img.dataset.animate = 'fade-up';
             }
             if (index !== 1) {
                 img.classList.add('mt-20');
@@ -338,7 +339,7 @@ function setupAnimations() {
                 scale: 1,
                 duration: 1,
                 ease: 'cubic-bezier(0.33,0,0.22,1)',
-                delay: index * 0.1, 
+                delay: index * 0.1,
                 scrollTrigger: {
                     trigger: el,
                     start: 'top 90%',

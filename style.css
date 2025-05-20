@@ -38,6 +38,48 @@ body {
         "wdth" 100;
 }
 
+/* Curtain Styles */
+#curtain {
+    display: flex;
+    height: 384px;
+    /* Bằng chiều cao của #main-image (h-96 = 384px) */
+    /* background-color: rgb(190 18 60); */
+}
+
+#curtain-left,
+#curtain-right {
+    width: 50%;
+    height: 1000%;
+}
+
+#curtain-left {
+    animation: slide-left 2s cubic-bezier(0.33, 0, 0.22, 1) forwards;
+}
+
+#curtain-right {
+    animation: slide-right 2s cubic-bezier(0.33, 0, 0.22, 1) forwards;
+}
+
+@keyframes slide-left {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes slide-right {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(100%);
+    }
+}
+
 .logo-placeholder::before {
     content: '囍';
     font-size: 2.5rem;
@@ -69,7 +111,7 @@ body {
     right: -39px;
 }
 
-#submit-rsvp:hover{
+#submit-rsvp:hover {
     background-color: rgb(190 18 60 / var(--tw-text-opacity, 1));
     color: white;
 }
@@ -176,7 +218,8 @@ body {
 }
 
 #music-control {
-    position: fixed; /* Vẫn giữ cố định khi cuộn */
+    position: fixed;
+    /* Vẫn giữ cố định khi cuộn */
     bottom: 1rem;
     left: 1rem;
     font-size: 2rem;
@@ -200,7 +243,8 @@ body {
 
 #music-control.paused::after {
     content: '';
-    position: absolute; /* so với chính nó */
+    position: absolute;
+    /* so với chính nó */
     top: 50%;
     left: 50%;
     width: 110%;
@@ -218,9 +262,12 @@ body {
 /* Scroll Up/Down Icon Styles */
 #scroll-toggle {
     position: fixed;
-    bottom: 1rem;   /* ~ Tailwind: bottom-4 */
-    right: 1rem;    /* ~ Tailwind: right-4 */
-    font-size: 2.25rem; /* text-4xl */
+    bottom: 1rem;
+    /* ~ Tailwind: bottom-4 */
+    right: 1rem;
+    /* ~ Tailwind: right-4 */
+    font-size: 2.25rem;
+    /* text-4xl */
     color: rgb(190, 18, 60);
     cursor: pointer;
     z-index: 50;
