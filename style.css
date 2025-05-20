@@ -51,7 +51,8 @@ body {
     animation: slide-right 2s ease-in forwards;
 }
 
-#curtain-left, #curtain-right {
+#curtain-left,
+#curtain-right {
     width: 50%;
     height: 100vh;
     border: 3px solid #FFD700;
@@ -84,10 +85,14 @@ body {
 }
 
 .lantern {
-    width: 20%; /* Tương đương ~20% chiều rộng container */
-    height: 30%; /* Tương đương ~30% chiều cao container */
-    bottom: -25%; /* Điều chỉnh tỷ lệ */
-    right: -10%; /* Điều chỉnh tỷ lệ */
+    width: 20%;
+    /* Tương đương ~20% chiều rộng container */
+    height: 30%;
+    /* Tương đương ~30% chiều cao container */
+    bottom: -25%;
+    /* Điều chỉnh tỷ lệ */
+    right: -10%;
+    /* Điều chỉnh tỷ lệ */
 }
 
 #submit-rsvp:hover {
@@ -273,7 +278,7 @@ body {
 
 #qr-modal .bg-white {
     background-color: white;
-    border: 5px solid #FFD700; 
+    border: 5px solid #FFD700;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     /* background: url('assets/images/wedding-pattern.png') center/cover no-repeat; */
 }
@@ -286,6 +291,36 @@ body {
 #close-qr-modal:hover {
     transform: scale(1.1);
     transition: transform 0.2s ease;
+}
+
+/* Album Image Styles */
+#album-images img {
+    width: 10rem;
+    /* w-40 = 160px */
+    height: 10rem;
+    /* h-40 = 160px */
+    object-fit: cover;
+    /* Cắt ảnh vượt quá */
+}
+
+#album-images img.large-vertical {
+    width: 10rem;
+    /* w-40 */
+    height: 20rem;
+    /* h-80, gấp đôi chiều cao */
+    grid-row: span 2;
+    /* Chiếm 2 hàng */
+    object-fit: cover;
+}
+
+#album-images img.large-horizontal {
+    width: 20rem;
+    /* w-80, gấp đôi chiều rộng */
+    height: 10rem;
+    /* h-40 */
+    grid-column: span 2;
+    /* Chiếm 2 cột */
+    object-fit: cover;
 }
 
 /* Animation */

@@ -144,16 +144,21 @@ function renderContent(content) {
         calendarContainer.innerHTML = generateCalendar(year, month, weddingDay);
     }
 
-    // Album images
+    /// Album images
     const albumImagesContainer = document.getElementById('album-images');
     if (albumImagesContainer) {
         content.album.images.forEach((image, index) => {
             const img = document.createElement('img');
             img.src = image.src;
             img.alt = image.alt;
-            img.className = 'h-30 object-contain animate-element';
-            img.dataset.animate = index % 2 === 0 ? 'slide-left' : 'slide-right';
-            img.style.justifySelf = index % 2 === 0 ? 'end' : 'start';
+            img.className = 'animate-element';
+            if (index === 4) {
+                img.classList.add('large-vertical'); // Ảnh trái dọc lớn
+            } else if (index === 9) {
+                img.classList.add('large-horizontal'); // Ảnh ngang lớn
+            }
+            img.dataset.animate = [0, 2, 4, 7].includes(index) ? 'slide-left' : index === 9 ? 'fade-in' : 'slide-right';
+            img.style.justifySelf = index % 2 === 0 && index !== 9 ? 'end' : index === 9 ? 'center' : 'start';
             albumImagesContainer.appendChild(img);
         });
     }

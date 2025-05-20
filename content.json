@@ -100,12 +100,28 @@
                 "alt": "Hình cưới 2 - phải"
             },
             {
-                "src": "assets/images/album-3-left.jpg",
-                "alt": "Hình cưới 3 - trái"
+                "src": "assets/images/album-3-left-large.jpg",
+                "alt": "Hình cưới 3 - trái dọc lớn"
             },
             {
-                "src": "assets/images/album-3-right.jpg",
-                "alt": "Hình cưới 3 - phải"
+                "src": "assets/images/album-3-right-small.jpg",
+                "alt": "Hình cưới 3 - phải ngang nhỏ"
+            },
+            {
+                "src": "assets/images/album-4-right-small.jpg",
+                "alt": "Hình cưới 4 - phải ngang nhỏ"
+            },
+            {
+                "src": "assets/images/album-5-left.jpg",
+                "alt": "Hình cưới 5 - trái"
+            },
+            {
+                "src": "assets/images/album-5-right.jpg",
+                "alt": "Hình cưới 5 - phải"
+            },
+            {
+                "src": "assets/images/album-6-full.jpg",
+                "alt": "Hình cưới 6 - ngang lớn"
             }
         ],
         "blurredImage": {
