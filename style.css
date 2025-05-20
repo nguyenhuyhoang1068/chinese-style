@@ -41,9 +41,6 @@ body {
 /* Curtain Styles */
 #curtain {
     display: flex;
-    height: 384px;
-    /* Bằng chiều cao của #main-image (h-96 = 384px) */
-    /* background-color: rgb(190 18 60); */
 }
 
 #curtain-left,
@@ -60,24 +57,10 @@ body {
     animation: slide-right 2s cubic-bezier(0.33, 0, 0.22, 1) forwards;
 }
 
-@keyframes slide-left {
-    from {
-        transform: translateX(0);
-    }
-
-    to {
-        transform: translateX(-100%);
-    }
-}
-
-@keyframes slide-right {
-    from {
-        transform: translateX(0);
-    }
-
-    to {
-        transform: translateX(100%);
-    }
+#curtain-left, #curtain-right {
+    background-image: url('assets/images/wedding-pattern.png');
+    background-size: cover;
+    background-position: center;
 }
 
 .logo-placeholder::before {
@@ -309,6 +292,10 @@ body {
     will-change: transform, opacity;
 }
 
+.animation-float-up-down {
+    animation: floatUpDown 2s ease-in-out infinite;
+}
+
 @keyframes floatUpDown {
 
     0%,
@@ -323,6 +310,23 @@ body {
     }
 }
 
-.animation-float-up-down {
-    animation: floatUpDown 2s ease-in-out infinite;
+
+@keyframes slide-left {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes slide-right {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(100%);
+    }
 }
