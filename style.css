@@ -58,7 +58,7 @@ body {
 }
 
 #curtain-left, #curtain-right {
-    border: 2px solid #FFD700;
+    border: 3px solid #FFD700;
     background-image: url('assets/images/wedding-pattern.png');
     background-size: cover;
     background-position: center;
