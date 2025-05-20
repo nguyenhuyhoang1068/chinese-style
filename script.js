@@ -3,12 +3,14 @@ document.addEventListener('DOMContentLoaded', initialize);
 async function initialize() {
     try {
         await loadContent();
-        setupRsvpForm();
-        setupMusicControl();
-        setupScrollUpDown();
         // Register ScrollTrigger
         gsap.registerPlugin(ScrollTrigger);
         setupAnimations();
+        setupCurtain();
+        setupRsvpForm();
+        setupMusicControl();
+        setupScrollUpDown();
+        setupQrModal();
         window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch (error) {
         console.error('Initialization failed:', error);
@@ -163,6 +165,15 @@ function renderContent(content) {
     }
 }
 
+function setupCurtain() {
+    const curtain = document.getElementById('curtain');
+    if (curtain) {
+        setTimeout(() => {
+            curtain.style.display = 'none';
+        }, 2000);
+    }
+}
+
 function generateCalendar(year, month, weddingDay) {
     const daysInMonth = new Date(year, month, 0).getDate();
     const firstDay = ((new Date(year, month - 1, 1).getDay() + 6) % 7); // Adjust Sunday to end
@@ -299,6 +310,29 @@ function setupScrollUpDown() {
 
     window.addEventListener('scroll', updateIcon);
     updateIcon();
+}
+
+/* QR Modal */
+function setupQrModal() {
+    const giftButton = document.getElementById('gift-text');
+    const qrModal = document.getElementById('qr-modal');
+    const closeQrModal = document.getElementById('close-qr-modal');
+
+    if (giftButton && qrModal && closeQrModal) {
+        giftButton.addEventListener('click', () => {
+            qrModal.classList.add('show');
+        });
+
+        closeQrModal.addEventListener('click', () => {
+            qrModal.classList.remove('show');
+        });
+
+        qrModal.addEventListener('click', (e) => {
+            if (e.target === qrModal) {
+                qrModal.classList.remove('show');
+            }
+        });
+    }
 }
 
 function setupAnimations() {
