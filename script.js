@@ -2,6 +2,8 @@ document.addEventListener('DOMContentLoaded', initialize);
 
 async function initialize() {
     try {
+        window.history.scrollRestoration = 'manual';
+
         await loadContent();
         setupCurtain();
         setupRsvpForm();
@@ -11,6 +13,7 @@ async function initialize() {
         // Register ScrollTrigger
         gsap.registerPlugin(ScrollTrigger);
         setupAnimations();
+        
         window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch (error) {
         console.error('Initialization failed:', error);
