@@ -151,7 +151,7 @@ function renderContent(content) {
             const img = document.createElement('img');
             img.src = image.src;
             img.alt = image.alt;
-            img.className = 'h-40 object-contain animate-element';
+            img.className = 'h-30 object-contain animate-element';
             img.dataset.animate = index % 2 === 0 ? 'slide-left' : 'slide-right';
             img.style.justifySelf = index % 2 === 0 ? 'end' : 'start';
             albumImagesContainer.appendChild(img);
@@ -165,6 +165,7 @@ function renderContent(content) {
     }
 }
 
+/* Curtain */
 function setupCurtain() {
     const curtain = document.getElementById('curtain');
     if (curtain) {
@@ -174,6 +175,7 @@ function setupCurtain() {
     }
 }
 
+/* Calendar */
 function generateCalendar(year, month, weddingDay) {
     const daysInMonth = new Date(year, month, 0).getDate();
     const firstDay = ((new Date(year, month - 1, 1).getDay() + 6) % 7); // Adjust Sunday to end
@@ -204,6 +206,7 @@ function generateCalendar(year, month, weddingDay) {
     return calendarHTML + '</tbody></table>';
 }
 
+/* Rsvp Form */
 function setupRsvpForm() {
     const submitButton = document.getElementById('submit-rsvp');
     submitButton?.addEventListener('click', handleRsvpSubmit);
@@ -245,6 +248,7 @@ function clearForm() {
     if (attendance) attendance.value = 'yes';
 }
 
+/* Music Control */
 function setupMusicControl() {
     const audio = document.getElementById('wedding-music');
     const musicControl = document.getElementById('music-control');
@@ -281,6 +285,7 @@ function setupMusicControl() {
     });
 }
 
+/* Scroll Up Down */
 function setupScrollUpDown() {
     const scrollBtn = document.getElementById('scroll-toggle');
     if (!scrollBtn) return;
@@ -335,6 +340,7 @@ function setupQrModal() {
     }
 }
 
+/* Animations */
 function setupAnimations() {
     const elements = document.querySelectorAll('.animate-element');
     elements.forEach((el, index) => {
