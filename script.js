@@ -382,7 +382,7 @@ function setupAnimations() {
                 delay: index * 0.1,
                 scrollTrigger: {
                     trigger: el,
-                    start: 'top 90%',
+                    start: 'top 100%',
                     end: 'bottom 0%',
                     toggleActions: 'play none none none',
                     markers: false
