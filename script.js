@@ -5,7 +5,7 @@ async function initialize() {
         window.history.scrollRestoration = 'manual';
 
         await loadContent();
-        setupCurtain();
+        hideCurtain();
         setupRsvpForm();
         setupMusicControl();
         setupScrollUpDown();
@@ -178,7 +178,7 @@ function renderContent(content) {
 }
 
 /* Curtain */
-function setupCurtain() {
+function hideCurtain() {
     const curtain = document.getElementById('curtain');
     if (curtain) {
         setTimeout(() => {

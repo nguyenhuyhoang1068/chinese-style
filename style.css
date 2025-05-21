@@ -43,14 +43,6 @@ body {
     display: flex;
 }
 
-#curtain-left {
-    animation: slide-left 2s ease-in forwards;
-}
-
-#curtain-right {
-    animation: slide-right 2s ease-in forwards;
-}
-
 #curtain-left,
 #curtain-right {
     width: 50%;
@@ -59,6 +51,14 @@ body {
     background-image: url('assets/images/wedding-pattern.png');
     background-size: cover;
     background-position: center;
+}
+
+#curtain-left {
+    animation: slide-left 2s ease-in forwards;
+}
+
+#curtain-right {
+    animation: slide-right 2s ease-in forwards;
 }
 
 .logo-placeholder::before {
