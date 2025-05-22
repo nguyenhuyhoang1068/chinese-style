@@ -61,6 +61,12 @@ body {
     animation: slide-right 2s ease-in forwards;
 }
 
+#curtain-logo {
+    width: 100px; 
+    height: 100px; 
+    z-index: 50;
+}
+
 .logo-placeholder::before {
     content: '囍';
     font-size: 3rem;
