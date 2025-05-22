@@ -84,6 +84,19 @@
         "submitButton": "GỬI NGAY",
         "giftText": "GỬI MỪNG CƯỚI"
     },
+    "qrCode": {
+        "title": "Gửi Lời Chúc Hạnh Phúc",
+        "image": {
+            "src": "assets/images/qr-code.png",
+            "alt": "Mã QR chuyển khoản"
+        },
+        "info": [
+            "Ngân hàng: Vietcombank",
+            "Số tài khoản: 0421000456759",
+            "Chủ tài khoản: Nguyễn Huy Hoàng"
+        ],
+        "thanks": "Trân trọng cảm ơn lời chúc và món quà quý giá từ bạn!"
+    },
     "album": {
         "title": "Album hình cưới",
         "images": [

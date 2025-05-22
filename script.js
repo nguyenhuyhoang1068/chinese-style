@@ -97,7 +97,8 @@ function renderContent(content) {
         'main-image': content.mainImage,
         'lantern-image': content.lanternImage,
         'secondary-image': content.secondaryImage,
-        'blurred-image': content.album.blurredImage
+        'blurred-image': content.album.blurredImage,
+        'qr-code': content.qrCode.image
     };
 
     Object.entries(images).forEach(([id, { src, alt }]) => {
@@ -150,6 +151,35 @@ function renderContent(content) {
     const calendarContainer = document.getElementById('calendar');
     if (calendarContainer) {
         calendarContainer.innerHTML = generateCalendar(year, month, weddingDay);
+    }
+
+    // QR Modal Content
+    const qrModal = document.getElementById("qr-modal");
+    if (qrModal && content.qrCode) {
+        const qrTitle = qrModal.querySelector("h3");
+        if (qrTitle) qrTitle.textContent = content.qrCode.title;
+
+        const thankText = qrModal.querySelector("p.text-rose-600");
+        if (thankText) thankText.textContent = content.qrCode.thanks;
+
+        const infoContainer = document.getElementById("qr-info");
+        if (infoContainer) {
+            infoContainer.innerHTML = ""; // Clear cũ
+            const infos = content.qrCode.info || [
+                content.qrCode.bank,
+                content.qrCode.number,
+                content.qrCode.owner
+            ];
+
+            infos.forEach((text, index) => {
+                const p = document.createElement("p");
+                p.className = `text-gray-700 mb-${index === infos.length - 1 ? 4 : 2}`;
+                const strong = document.createElement("strong");
+                strong.textContent = text;
+                p.appendChild(strong);
+                infoContainer.appendChild(p);
+            });
+        }
     }
 
     /// Album images
