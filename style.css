@@ -48,7 +48,9 @@ body {
     width: 50%;
     height: 100vh;
     border: 3px solid #FFD700;
+    background-color: rgb(190 18 60 / var(--tw-text-opacity, 1));
     background-image: url('assets/images/wedding-pattern.png');
+    background-blend-mode: multiply;
     background-size: cover;
     background-position: center;
 }
