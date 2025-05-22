@@ -180,9 +180,11 @@ function renderContent(content) {
 /* Curtain */
 function hideCurtain() {
     const curtain = document.getElementById('curtain');
+    document.body.classList.add('overflow-hidden');
     if (curtain) {
         setTimeout(() => {
             curtain.style.display = 'none';
+            document.body.classList.remove('overflow-hidden');
         }, 2000);
     }
 }
