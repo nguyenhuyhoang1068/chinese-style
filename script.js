@@ -93,6 +93,7 @@ function renderContent(content) {
 
     // Images
     const images = {
+        'curtain-logo': content.curtain,
         'main-image': content.mainImage,
         'lantern-image': content.lanternImage,
         'secondary-image': content.secondaryImage,

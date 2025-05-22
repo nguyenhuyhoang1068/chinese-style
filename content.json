@@ -6,6 +6,10 @@
         "day": "THỨ 7 - 18H00",
         "date": "18.10.2025"
     },
+    "curtain": {
+        "src": "assets/images/囍.png",
+        "alt": "囍"
+    },
     "mainImage": {
         "src": "assets/images/main-couple.jpg",
         "alt": "Cô dâu chú rể đứng thẳng"
