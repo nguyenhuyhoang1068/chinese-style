@@ -296,7 +296,7 @@ body {
     content: '';
     position: absolute;
     inset: 0;
-    background-color: rgba(255, 255, 255, 0.8); /* lớp mờ trắng */
+    background-color: rgba(255, 255, 255, 0.8);
     z-index: 0;
 }
 
@@ -305,17 +305,16 @@ body {
     z-index: 1;
 }
 
-
 #qr-modal img {
     border: 1px solid #FFD700;
     border-radius: 8px;
 }
 
-#close-qr-modal:hover {
-    transform: scale(1.1);
-    transition: transform 0.2s ease;
+#close-qr-modal {
+    position: absolute !important;
+    top: 1%;
+    right: 1%;
 }
-
 /* Album Image Styles */
 #album-images img {
     width: 10rem;
