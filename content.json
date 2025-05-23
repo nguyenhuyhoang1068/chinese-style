@@ -18,6 +18,10 @@
         "src": "assets/images/double-lantern.png",
         "alt": "Lồng đèn"
     },
+    "happinessLogo": {
+        "src": "assets/images/囍-logo.png",
+        "alt": "囍 logo"
+    },
     "family": {
         "groom": {
             "title": "NHÀ TRAI",
@@ -31,6 +35,10 @@
             "mother": "BÀ ĐỖ THỊ DƯ",
             "location": "QUI NHƠN, BÌNH ĐỊNH"
         }
+    },
+    "light": {
+        "src": "assets/images/light-2.png",
+        "alt": "light"
     },
     "announcement": {
         "text": "Trân Trọng Báo Tin Lễ Thành Hôn Của",
@@ -57,6 +65,10 @@
                 "alt": "Cô dâu chú rể nhỏ - phải"
             }
         ],
+        "decorativeLine": {
+            "src": "assets/images/decorative-line.png",
+            "alt": "Decorative line"
+        },
         "eventText": "THAM DỰ TIỆC MỪNG LỄ THÀNH HÔN",
         "timeLabel": "Vào lúc",
         "time": "18 giờ 00",

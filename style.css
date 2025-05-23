@@ -48,7 +48,7 @@ body {
     width: 50%;
     height: 100vh;
     border: 3px solid #FFD700;
-    background-color: rgba(190, 18, 60, 1);;
+    background-color: rgba(190, 18, 60, 1);
     background-image: url('assets/images/wedding-pattern.png');
     background-blend-mode: multiply;
     background-size: cover;
@@ -73,7 +73,7 @@ body {
     content: '囍';
     font-size: 3rem;
     font-family: 'Great Vibes', cursive;
-    color: rgba(190, 18, 60, 1);;
+    color: rgba(190, 18, 60, 1);
 }
 
 .image-placeholder {
@@ -89,7 +89,7 @@ body {
 #main-image {
     max-width: 600px;
     box-shadow: 20px 10px 20px rgba(113, 4, 4, 0.2);
-    border-color: rgba(190, 18, 60, 1);;
+    border-color: rgba(190, 18, 60, 1);
 }
 
 .lantern {
@@ -103,8 +103,23 @@ body {
     /* Điều chỉnh tỷ lệ */
 }
 
+#happiness-logo {
+    height: 120px;
+    border-color: rgba(190, 18, 60, 1);
+}
+
+#light {
+    height: 30px;
+    border-color: rgba(190, 18, 60, 1);
+}
+
+#decorative-line {
+    height: 40px;
+    border-color: rgba(190, 18, 60, 1);
+}
+
 #submit-rsvp:hover {
-    background-color: rgba(190, 18, 60, 1);;
+    background-color: rgba(190, 18, 60, 1);
     color: white;
 }
 
@@ -114,7 +129,7 @@ body {
     font-weight: 500;
     font-size: 1rem;
     border-radius: 9999px;
-    background-color: rgba(190, 18, 60, 1);;
+    background-color: rgba(190, 18, 60, 1);
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
@@ -129,7 +144,7 @@ body {
 
 /* Calendar Styles */
 .calendar-bg {
-    background-color: rgba(190, 18, 60, 1);;
+    background-color: rgba(190, 18, 60, 1);
 }
 
 

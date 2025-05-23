@@ -96,7 +96,10 @@ function renderContent(content) {
         'curtain-logo': content.curtain,
         'main-image': content.mainImage,
         'lantern-image': content.lanternImage,
+        'happiness-logo': content.happinessLogo,
+        'light': content.light,
         'secondary-image': content.secondaryImage,
+        'decorative-line': content.invitation.decorativeLine,
         'blurred-image': content.album.blurredImage,
         'qr-code': content.qrCode.image
     };
@@ -270,9 +273,21 @@ function handleRsvpSubmit() {
         return;
     }
 
-    console.log('RSVP Data:', inputs);
-    showMessage('Cảm ơn bạn đã xác nhận tham dự!', 'text-green-600');
-    clearForm();
+    const endpoint = "https://script.google.com/macros/s/AKfycbw1kE9UFCzG9qEUa4MBXJQOZH6S3ioDKvYKj6uH52ZRkDCLxOwdTw3p4aD0ZxmExZsQ7A/exec";
+    fetch(endpoint, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(inputs)
+    }).then(() => {
+        showMessage('Cảm ơn bạn đã xác nhận tham dự!', 'text-green-600');
+        clearForm();
+    }).catch((error) => {
+        showMessage('Có lỗi xảy ra. Vui lòng thử lại sau.', 'text-red-600');
+        console.error('RSVP Error:', error);
+    });
 }
 
 function showMessage(text, className) {
