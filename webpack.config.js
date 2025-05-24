@@ -2,16 +2,18 @@ const path = require('path');
 const JavaScriptObfuscator = require('webpack-obfuscator');
 
 module.exports = {
-    entry: './script.js', // File input
-    output: {
-        filename: 'script.min.js', // File output
-        path: path.resolve(__dirname, 'dist'), // Thư mục output
+    entry: {
+        main: './script.js', // Bundle script.js và các import
     },
-    mode: 'production', // Tối ưu hóa mã
+    output: {
+        filename: '[name].min.js', // Tạo script.min.js
+        path: path.resolve(__dirname, 'dist'),
+    },
+    mode: 'production',
     module: {
         rules: [
             {
-                test: /\.js$/, // Xử lý các file .js
+                test: /\.js$/,
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader',
@@ -24,12 +26,12 @@ module.exports = {
     },
     resolve: {
         fallback: {
-            path: require.resolve('path-browserify'), // Hỗ trợ module path cho browser
+            path: require.resolve('path-browserify'),
         },
     },
     plugins: [
         new JavaScriptObfuscator({
-            rotateStringArray: true, // Tên cũ là rotateUnicodeArray
+            rotateStringArray: true,
             compact: true,
             controlFlowFlattening: true,
         }, ['excluded_bundle_name.js']),
