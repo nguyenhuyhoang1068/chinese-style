@@ -1,0 +1,170 @@
+{
+    "title": "Huy Hoàng - Kim Thoa",
+    "header": {
+        "title": "THIỆP MỜI",
+        "couple": "Huy Hoàng - Kim Thoa",
+        "day": "THỨ 7 - 18H00",
+        "date": "18.10.2025"
+    },
+    "curtain": {
+        "src": "assets/images/囍.png",
+        "alt": "囍"
+    },
+    "mainImage": {
+        "src": "assets/images/main-couple.jpg",
+        "alt": "Cô dâu chú rể đứng thẳng"
+    },
+    "lanternImage": {
+        "src": "assets/images/double-lantern.png",
+        "alt": "Lồng đèn"
+    },
+    "happinessLogo": {
+        "src": "assets/images/囍-logo.png",
+        "alt": "囍 logo"
+    },
+    "family": {
+        "groom": {
+            "title": "NHÀ TRAI",
+            "father": "ÔNG NGUYỄN QUỐC TRƯỞNG",
+            "mother": "BÀ NGUYỄN THỊ LIÊN",
+            "location": "PHAN THIẾT, BÌNH THUẬN"
+        },
+        "bride": {
+            "title": "NHÀ GÁI",
+            "father": "ÔNG HỒ SĨ THUẬT",
+            "mother": "BÀ ĐỖ THỊ DƯ",
+            "location": "QUI NHƠN, BÌNH ĐỊNH"
+        }
+    },
+    "light": {
+        "src": "assets/images/light-2.png",
+        "alt": "light"
+    },
+    "announcement": {
+        "text": "Trân Trọng Báo Tin Lễ Thành Hôn Của",
+        "groom": "Nguyễn Huy Hoàng",
+        "bride": "Hồ Thị Kim Thoa"
+    },
+    "secondaryImage": {
+        "src": "assets/images/toasting-couple.jpg",
+        "alt": "Cô dâu chú rể cạn ly, cười"
+    },
+    "invitation": {
+        "inviteText": "Trân Trọng Kính Mời",
+        "smallImages": [
+            {
+                "src": "assets/images/small-couple-left.jpg",
+                "alt": "Cô dâu chú rể nhỏ - trái"
+            },
+            {
+                "src": "assets/images/small-couple-center.jpg",
+                "alt": "Cô dâu chú rể nhỏ - giữa"
+            },
+            {
+                "src": "assets/images/small-couple-right.jpg",
+                "alt": "Cô dâu chú rể nhỏ - phải"
+            }
+        ],
+        "decorativeLine": {
+            "src": "assets/images/decorative-line.png",
+            "alt": "Decorative line"
+        },
+        "eventText": "THAM DỰ TIỆC MỪNG LỄ THÀNH HÔN",
+        "timeLabel": "Vào lúc",
+        "time": "18 giờ 00",
+        "date": "Thứ 7, 18 Tháng 10, Năm 2025",
+        "lunarDate": "Tức ngày 27 tháng 08 năm Ất Tỵ",
+        "locationText": "BUỔI TIỆC ĐƯỢC TỔ CHỨC TẠI",
+        "venue": "NHÀ HÀNG BÌNH MINH",
+        "streetAddress": "211 Lê Lợi, Phường Hưng Long",
+        "cityProvince": "Phan Thiết, Bình Thuận",
+        "mapButton": "Xem chỉ đường"
+    },
+    "dateSection": {
+        "monthYear": "Tháng 10 - 2025",
+        "calendar": "18-10-2025"
+    },
+    "rsvp": {
+        "title": "XÁC NHẬN THAM DỰ & GỬI LỜI CHÚC",
+        "nameLabel": "Tên của bạn là gì?",
+        "namePlaceholder": "Nhập tên của bạn",
+        "relationshipLabel": "Bạn là gì của dâu rể nhỉ?",
+        "relationshipPlaceholder": "Quan hệ với dâu rể",
+        "messageLabel": "Gửi lời chúc đến dâu rể nhé!",
+        "messagePlaceholder": "Lời chúc của bạn",
+        "attendanceLabel": "Bạn có tham dự không?",
+        "submitButton": "GỬI NGAY",
+        "giftText": "GỬI MỪNG CƯỚI"
+    },
+    "qrCode": {
+        "title": "Gửi Lời Chúc Hạnh Phúc",
+        "image": {
+            "src": "assets/images/qr-code.png",
+            "alt": "Mã QR chuyển khoản"
+        },
+        "info": [
+            "Ngân hàng: Vietcombank",
+            "Số tài khoản: 0421000456759",
+            "Chủ tài khoản: Nguyễn Huy Hoàng"
+        ],
+        "thanks": "Trân trọng cảm ơn lời chúc và món quà quý giá từ bạn!"
+    },
+    "album": {
+        "title": "Album hình cưới",
+        "images": [
+            {
+                "src": "assets/images/album-1-left.jpg",
+                "alt": "Hình cưới 1 - trái"
+            },
+            {
+                "src": "assets/images/album-1-right.jpg",
+                "alt": "Hình cưới 1 - phải"
+            },
+            {
+                "src": "assets/images/album-2-left.jpg",
+                "alt": "Hình cưới 2 - trái"
+            },
+            {
+                "src": "assets/images/album-2-right.jpg",
+                "alt": "Hình cưới 2 - phải"
+            },
+            {
+                "src": "assets/images/album-3-left-large.jpg",
+                "alt": "Hình cưới 3 - trái dọc lớn"
+            },
+            {
+                "src": "assets/images/album-3-right-small.jpg",
+                "alt": "Hình cưới 3 - phải ngang nhỏ"
+            },
+            {
+                "src": "assets/images/album-4-right-small.jpg",
+                "alt": "Hình cưới 4 - phải ngang nhỏ"
+            },
+            {
+                "src": "assets/images/album-5-left.jpg",
+                "alt": "Hình cưới 5 - trái"
+            },
+            {
+                "src": "assets/images/album-5-right.jpg",
+                "alt": "Hình cưới 5 - phải"
+            },
+            {
+                "src": "assets/images/album-6-full.jpg",
+                "alt": "Hình cưới 6 - ngang lớn"
+            }
+        ],
+        "blurredImage": {
+            "src": "assets/images/blurred-couple.jpg",
+            "alt": "Hình dâu rể làm mờ"
+        }
+    },
+    "footer": {
+        "thankYou": "Thank you!",
+        "welcome": "Rất hân hạnh được đón tiếp."
+    },
+    "music": {
+        "title": "A Thousand Years",
+        "artist": "Cover",
+        "src": "assets/music/AThousandYears-Cover.mp3"
+    }
+}

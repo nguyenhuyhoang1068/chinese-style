@@ -1,0 +1,430 @@
+body {
+    font-family: 'Playfair Display', 'Roboto', sans-serif;
+    background: linear-gradient(to bottom, #f8f1eb, #fff);
+}
+
+.great-vibes-regular {
+    font-family: "Great Vibes", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.dancing-script-400 {
+    font-family: 'Dancing Script', cursive;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.imperial-script-regular {
+    font-family: "Imperial Script", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.montserrat-100 {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.roboto-100 {
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
+}
+
+/* Curtain Styles */
+#curtain {
+    display: flex;
+}
+
+#curtain-left,
+#curtain-right {
+    width: 50%;
+    height: 100vh;
+    border: 3px solid #FFD700;
+    background-color: rgba(190, 18, 60, 1);
+    background-image: url('assets/images/wedding-pattern.png');
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-position: center;
+}
+
+#curtain-left {
+    animation: slide-left 2s ease-in forwards;
+}
+
+#curtain-right {
+    animation: slide-right 2s ease-in forwards;
+}
+
+#curtain-logo {
+    width: 100px; 
+    height: 100px; 
+    z-index: 50;
+}
+
+.logo-placeholder::before {
+    content: '囍';
+    font-size: 3rem;
+    font-family: 'Great Vibes', cursive;
+    color: rgba(190, 18, 60, 1);
+}
+
+.image-placeholder {
+    background: #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    font-size: 0.875rem;
+    text-align: center;
+}
+
+#main-image {
+    max-width: 600px;
+    box-shadow: 20px 10px 20px rgba(113, 4, 4, 0.2);
+    border-color: rgba(190, 18, 60, 1);
+}
+
+.lantern {
+    width: 20%;
+    /* Tương đương ~20% chiều rộng container */
+    height: 30%;
+    /* Tương đương ~30% chiều cao container */
+    bottom: -25%;
+    /* Điều chỉnh tỷ lệ */
+    right: -10%;
+    /* Điều chỉnh tỷ lệ */
+}
+
+#happiness-logo {
+    height: 120px;
+    border-color: rgba(190, 18, 60, 1);
+}
+
+#light {
+    height: 30px;
+    border-color: rgba(190, 18, 60, 1);
+}
+
+#decorative-line {
+    height: 40px;
+    border-color: rgba(190, 18, 60, 1);
+}
+
+#submit-rsvp:hover {
+    background-color: rgba(190, 18, 60, 1);
+    color: white;
+}
+
+/* Wedding Button Styles */
+.wedding-button {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    border-radius: 9999px;
+    background-color: rgba(190, 18, 60, 1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.wedding-button:hover {
+    background-color: rgb(100, 1, 21);
+    transform: translateY(-5px);
+}
+
+.wedding-button:active {
+    transform: translateY(0);
+}
+
+/* Calendar Styles */
+.calendar-bg {
+    background-color: rgba(190, 18, 60, 1);
+}
+
+
+.calendar-container {
+    max-width: 280px;
+    margin: 0 auto;
+    font-family: 'Roboto', sans-serif;
+}
+
+.calendar-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.calendar-table th,
+.calendar-table td {
+    padding: 8px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: white;
+}
+
+.calendar-table th {
+    color: white;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+}
+
+.calendar-table td {
+    position: relative;
+    border: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+.calendar-table td.empty {
+    background: transparent;
+}
+
+.calendar-table td.wedding-day {
+    font-weight: 600;
+    color: white;
+    position: relative;
+}
+
+.calendar-table td.wedding-day::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' fill='white' stroke='white' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round' viewBox='0 0 24 24'><path d='M12 21C12 21 7 16.5 5 12.5C3 8.5 5 5 8 5C10 5 12 7 12 7C12 7 14 5 16 5C19 5 21 8.5 19 12.5C17 16.5 12 21 12 21Z'/></svg>") no-repeat center;
+    background-size: contain;
+    opacity: 0.5;
+    z-index: 0;
+}
+
+.calendar-table td.wedding-day span {
+    position: relative;
+    z-index: 1;
+}
+
+.calendar-table td:not(.empty):hover {
+    border: 1px solid white;
+    border-radius: 8px;
+}
+
+/* Music Control Icon Styles */
+#wedding-music {
+    display: none;
+}
+
+#music-control {
+    position: fixed;
+    /* fixed it to scroll */
+    bottom: 1rem;
+    left: 1rem;
+    font-size: 2rem;
+    color: rgb(190 18 60);
+    z-index: 1000;
+    transition: transform 0.2s ease, color 0.3s ease;
+    cursor: pointer;
+
+    /* important */
+    display: inline-block;
+}
+
+#music-control:hover {
+    transform: scale(1.2);
+    color: rgb(100, 1, 21);
+}
+
+#music-control.playing {
+    color: rgb(190 18 60);
+}
+
+#music-control.paused::after {
+    content: '';
+    position: absolute;
+    /* compare itself */
+    top: 50%;
+    left: 50%;
+    width: 110%;
+    height: 2px;
+    background-color: currentColor;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    transform-origin: center;
+    pointer-events: none;
+}
+
+#music-control.paused:hover::after {
+    background-color: currentColor;
+}
+
+/* Scroll Up/Down Icon Styles */
+#scroll-toggle {
+    position: fixed;
+    bottom: 1rem;
+    /* ~ Tailwind: bottom-4 */
+    right: 1rem;
+    /* ~ Tailwind: right-4 */
+    font-size: 2.25rem;
+    /* text-4xl */
+    color: rgb(190, 18, 60);
+    cursor: pointer;
+    z-index: 50;
+    transition: transform 0.3s ease;
+}
+
+#scroll-toggle:hover {
+    transform: scale(1.2);
+    color: rgb(100, 1, 21);
+}
+
+/* QR Modal Styles */
+#qr-modal {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.7);
+    animation: fade-in 0.3s ease;
+}
+
+#qr-modal.show {
+    display: flex;
+}
+
+#qr-modal .modal-content {
+    position: relative;
+    border: 5px solid #FFD700;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    background: url('assets/images/photo2.jpg') center/cover no-repeat;
+    overflow: hidden;
+}
+
+#qr-modal .modal-content::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: 0;
+}
+
+#qr-modal .modal-content > * {
+    position: relative;
+    z-index: 1;
+}
+
+#qr-modal img {
+    border: 1px solid #FFD700;
+    border-radius: 8px;
+}
+
+#close-qr-modal {
+    position: absolute !important;
+    top: 1%;
+    right: 1%;
+}
+/* Album Image Styles */
+#album-images img {
+    width: 10rem;
+    /* w-40 = 160px */
+    height: 10rem;
+    /* h-40 = 160px */
+    object-fit: cover;
+    /* Cắt ảnh vượt quá */
+}
+
+#album-images img.large-vertical {
+    width: 10rem;
+    /* w-40 */
+    height: 20rem;
+    /* h-80, gấp đôi chiều cao */
+    grid-row: span 2;
+    /* Chiếm 2 hàng */
+    object-fit: cover;
+}
+
+#album-images img.large-horizontal {
+    width: 20rem;
+    /* w-80, gấp đôi chiều rộng */
+    height: 10rem;
+    /* h-40 */
+    grid-column: span 2;
+    /* Chiếm 2 cột */
+    object-fit: cover;
+}
+
+/* Animation */
+.wedding-section {
+    /* padding: 50px 20px; */
+    /* min-height: 100vh; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.family-info {
+    display: flex;
+    justify-content: space-between;
+    max-width: 800px;
+    width: 100%;
+    /* margin: 20px auto; */
+}
+
+/* .family-info div {
+    width: 45%;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+} */
+
+.animate-element {
+    opacity: 0;
+    will-change: transform, opacity;
+}
+
+.animation-float-up-down {
+    animation: floatUpDown 2s ease-in-out infinite;
+}
+
+@keyframes floatUpDown {
+
+    0%,
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    50% {
+        transform: translateY(-10px);
+        opacity: 1;
+    }
+}
+
+
+@keyframes slide-left {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes slide-right {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(100%);
+    }
+}

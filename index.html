@@ -1,0 +1,251 @@
+<script type="text/javascript">
+    var gk_isXlsx = false;
+    var gk_xlsxFileLookup = {};
+    var gk_fileData = {};
+    function filledCell(cell) {
+        return cell !== '' && cell != null;
+    }
+    function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                    row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                    headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+    }
+</script>
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title"></title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Great+Vibes&family=Imperial+Script&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Phosphor icons -->
+    <script src="https://unpkg.com/phosphor-icons"></script>
+</head>
+
+<body class="min-h-screen flex flex-col items-center justify-center p-4">
+    <div class="max-w-2xl w-full bg-white shadow-lg rounded-lg overflow-hidden">
+        <!-- Curtain -->
+        <div id="curtain" class="fixed inset-0 z-50 flex">
+            <div id="curtain-left" class="w-1/2 animate-element relative" data-animate="slide-left">
+                <img id="curtain-logo" class="absolute top-1/2 left-full -translate-x-1/2 -translate-y-1/2">
+            </div>
+            <div id="curtain-right" class="w-1/2 animate-element" data-animate="slide-right"></div>
+        </div>
+        <!-- Header Section -->
+        <div class="wedding-section text-center mb-5 bg-gradient-to-b from-rose-50 to-white">
+            <h1 id="header-title" class="animate-element text-3xl montserrat-100" data-animate="fade-in"></h1>
+            <h2 id="header-couple" class="animate-element text-3xl mt-2 text-rose-700 imperial-script-regular"
+                data-animate="fade-up">
+            </h2>
+            <div class="animate-element flex justify-center mt-3" data-animate="fade-in">
+                <div class="w-30 h-25 rounded-full flex items-center justify-center logo-placeholder">
+                </div>
+            </div>
+            <p id="header-day" class="animate-element text-lg montserrat-100" data-animate="fade-in"></p>
+            <strong id="header-date" class="animate-element text-2xl text-rose-700 montserrat-100"
+                data-animate="fade-up"></strong>
+        </div>
+
+        <!-- Main Image -->
+        <div class="wedding-section flex justify-center items-center h-96 mb-20">
+            <div class="relative flex justify-center items-center h-96">
+                <img id="main-image" class="animate-element max-h-full max-w-full object-contain border-[6px]"
+                    data-animate="fade-up">
+                <img id="lantern-image" class="animate-element absolute lantern object-contain animation-float-up-down"
+                    data-animate="fade-up">
+            </div>
+        </div>
+
+        <!-- Happiness Logo -->
+        <div class="wedding-section flex justify-center">
+            <img id="happiness-logo" class="animate-element object-contain" data-animate="zoom-in">
+        </div>
+
+        <!-- Family Information -->
+        <div class="wedding-section flex justify-between px-4 py-8 text-center text-gray-700">
+            <div class="family-info">
+                <div class="animate-element w-1/2 text-xs" data-animate="slide-left">
+                    <p id="groom-title" class="font-bold"></p>
+                    <p id="groom-father" class="font-bold"></p>
+                    <p id="groom-mother" class="font-bold"></p>
+                    <p id="groom-location"></p>
+                </div>
+                <div class="animate-element w-1/2 text-xs" data-animate="slide-right">
+                    <p id="bride-title" class="font-bold"></p>
+                    <p id="bride-father" class="font-bold"></p>
+                    <p id="bride-mother" class="font-bold"></p>
+                    <p id="bride-location"></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Light -->
+        <div class="wedding-section flex justify-center m-3">
+            <img id="light" class="animate-element object-contain" data-animate="fade-in">
+        </div>
+
+        <!-- Announcement -->
+        <div class="wedding-section text-center py-6">
+            <strong id="announcement-text" class="animate-element text-lg text-gray-600"
+                data-animate="fade-in"></strong>
+            <h3 id="announcement-groom" class="animate-element text-4xl text-rose-700 imperial-script-regular mt-2"
+                data-animate="fade-up"></h3>
+            <p class="animate-element text-xl text-rose-700 imperial-script-regular" data-animate="fade-up">&</p>
+            <h3 id="announcement-bride" class="animate-element text-4xl text-rose-700 imperial-script-regular"
+                data-animate="fade-up">
+            </h3>
+        </div>
+
+        <!-- Secondary Image -->
+        <img id="secondary-image" class="animate-element wedding-section w-full object-contain" data-animate="zoom-in">
+
+        <!-- Invitation -->
+        <div class="wedding-section text-center py-8">
+            <p id="invite-text" class="animate-element text-xl font-semibold text-rose-800 dancing-script-400"
+                data-animate="fade-in"></p>
+            <div id="small-images" class="flex justify-center mt-4 px-6 gap-4">
+                <!-- Small images will be inserted here -->
+            </div>
+            <!-- Decorative Separator -->
+            <div class="wedding-section flex justify-center mt-10">
+                <img id="decorative-line" class="animate-element object-contain" data-animate="fade-in">
+            </div>
+
+            <p id="event-text" class="animate-element text-lg mt-10 text-gray-700" data-animate="fade-in"></p>
+            <p id="time-label" class="animate-element text-lg text-gray-600" data-animate="fade-in"></p>
+            <div class="mt-4">
+                <p id="time" class="animate-element text-2xl font-bold text-rose-700" data-animate="fade-in"></p>
+                <p id="date" class="animate-element text-lg text-gray-700" data-animate="fade-in"></p>
+                <p id="lunar-date" class="animate-element text-sm text-gray-600" data-animate="fade-in"></p>
+            </div>
+            <p id="location-text" class="animate-element text-lg mt-10 text-gray-700" data-animate="slide-left"></p>
+            <p id="venue" class="animate-element text-xl font-semibold text-rose-800" data-animate="slide-right"></p>
+            <p id="street-address" class="animate-element text-gray-700" data-animate="slide-left"></p>
+            <p id="city-province" class="animate-element text-gray-700" data-animate="slide-right"></p>
+            <a id="map-button" href="#" target="_blank"
+                class="wedding-button animate-element mt-4 inline-block text-white px-6 py-2 rounded-full transition-colors"
+                data-animate="fade-in"></a>
+        </div>
+
+        <!-- Calendar -->
+        <div class="wedding-section calendar-bg animate-element text-center py-4" data-animate="zoom-in">
+            <strong id="month-year" class="animate-element text-2xl text-white dancing-script-400 mt-2"
+                data-animate="fade-up"></strong>
+            <div id="calendar" class="animate-element calendar-container mt-2" data-animate="zoom-in"></div>
+        </div>
+
+        <!-- RSVP -->
+        <div class="wedding-section text-center py-8 px-6">
+            <h3 id="rsvp-title" class="animate-element text-xl text-rose-800 roboto-100" data-animate="fade-in"></h3>
+            <div class="animate-element mt-4 text-left w-full mx-auto" id="rsvp-form" data-animate="zoom-in">
+                <p id="name-label" class="animate-element text-gray-700" data-animate="fade-in"></p>
+                <input type="text" id="name" class="animate-element w-full mt-2 p-2 border rounded" placeholder=""
+                    data-animate="fade-in">
+                <p id="relationship-label" class="animate-element text-gray-700 mt-4" data-animate="fade-in"></p>
+                <input type="text" id="relationship" class="animate-element w-full mt-2 p-2 border rounded"
+                    placeholder="" data-animate="fade-in">
+                <p id="message-label" class="animate-element text-gray-700 mt-4" data-animate="fade-in"></p>
+                <textarea id="message" class="animate-element w-full mt-2 p-2 border rounded" rows="2" placeholder=""
+                    data-animate="fade-in"></textarea>
+                <p id="attendance-label" class="animate-element text-gray-700 mt-4" data-animate="fade-in"></p>
+                <select id="attendance"
+                    class="animate-element w-full h-10 mt-2 p-2 border rounded bg-white text-gray-800 appearance-none shadow-sm"
+                    data-animate="fade-in">
+                    <option value="yes">Có</option>
+                    <option value="no">Không</option>
+                </select>
+                <button id="submit-rsvp"
+                    class="animate-element w-full mt-6 p-2 border rounded shadow-lg animation-float-up-down"
+                    data-animate="zoom-in"></button>
+                <p id="form-message" class="mt-2 text-sm text-gray-600 hidden"></p>
+            </div>
+            <button id="gift-text"
+                class="animate-element wedding-button mt-6 mx-auto block text-white px-6 py-2 rounded-full transition-colors"
+                data-animate="fade-in"></button>
+        </div>
+
+        <!-- Photo Album -->
+        <div class="wedding-section animate-element py-8 px-6 bg-rose-50" data-animate="zoom-in">
+            <h3 id="album-title" class="animate-element text-center text-2xl font-bold text-rose-800 dancing-script-400"
+                data-animate="fade-in">
+            </h3>
+            <div id="album-images" class="grid grid-cols-2 gap-x-2 gap-y-2">
+                <!-- Album images will be inserted here -->
+            </div>
+            <div class="relative">
+                <img id="blurred-image" class="animate-element w-full h-48 mt-4 object-cover opacity-50"
+                    data-animate="fade-in">
+                <div class="absolute inset-0 flex flex-col items-center justify-end text-white">
+                    <p id="thank-you" class="animate-element text-xl font-bold dancing-script-400"
+                        data-animate="fade-up"></p>
+                    <p id="welcome" class="animate-element mb-10" data-animate="fade-up"></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Audio Element -->
+        <audio id="wedding-music" src="" preload="auto" loop></audio>
+
+        <!-- Music Control Icon (Double Quaver) -->
+        <i id="music-control"
+            class="ph-duotone ph-music-notes fixed bottom-4 left-4 text-4xl text-rose-700 cursor-pointer animation-float-up-down"
+            aria-label="play/pause"></i>
+
+        <!-- Back to Top Button -->
+        <i id="scroll-toggle"
+            class="ph-bold ph-arrow-circle-up fixed bottom-4 right-4 text-4xl text-rose-700 cursor-pointer animation-float-up-down"
+            aria-label="Scroll toggle"></i>
+    </div>
+    <!-- QR Modal -->
+    <div id="qr-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="modal-content rounded-lg p-6 max-w-sm w-full text-center relative">
+            <button id="close-qr-modal" class="text-gray-600 hover:text-rose-700">
+                <i class="ph-bold ph-x-circle text-2xl"></i>
+            </button>
+            <h3 class="text-2xl text-rose-700 dancing-script-400 mb-4"></h3>
+            <img id="qr-code" class="mx-auto mb-4 w-48 h-48">
+            <div id="qr-info"></div>
+            <p class="text-rose-600 dancing-script-400 animation-float-up-down"></p>
+        </div>
+    </div>    
+    <!-- GSAP và ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
