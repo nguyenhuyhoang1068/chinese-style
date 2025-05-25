@@ -1,0 +1,23 @@
+{
+    "rewrites": [
+        {
+            "source": "/content.json",
+            "destination": "/404"
+        }
+    ],
+    "headers": [
+        {
+            "source": "/content.json",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "no-store, no-cache, must-revalidate, proxy-revalidate"
+                },
+                {
+                    "key": "Access-Control-Allow-Origin",
+                    "value": "https://huyhoangkimthoa-chinese-style.vercel.app"
+                }
+            ]
+        }
+    ]
+}

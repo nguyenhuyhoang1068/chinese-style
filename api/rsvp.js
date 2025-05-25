@@ -20,9 +20,8 @@ export default async function handler(req, res) {
             })
         });
 
-        const responseData = await response.json(); // Lấy dữ liệu phản hồi từ Google Apps Script
+        const responseData = await response.json(); // get response from Google Apps Script
 
-        // Kiểm tra trạng thái từ Google Apps Script
         if (responseData.success === false) {
             console.error("Google Script Error:", responseData);
             return res.status(400).json({
@@ -31,12 +30,11 @@ export default async function handler(req, res) {
             });
         }
 
-        // Kiểm tra trạng thái thành công
         if (responseData.status === 'success') {
             return res.status(200).json({ success: true, message: responseData.message || 'RSVP saved' });
         }
 
-        // Trường hợp không xác định
+        // Case not determined
         console.error("Unexpected Google Script Response:", responseData);
         return res.status(500).json({ success: false, message: 'Phản hồi không hợp lệ từ Google Apps Script' });
 
