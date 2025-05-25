@@ -1,13 +1,13 @@
 {
     "rewrites": [
         {
-            "source": "/content.json",
-            "destination": "/404"
+            "source": "/assets/data/content.json",
+            "destination": "/api/content"
         }
     ],
     "headers": [
         {
-            "source": "/content.json",
+            "source": "/assets/data/content.json",
             "headers": [
                 {
                     "key": "Cache-Control",
