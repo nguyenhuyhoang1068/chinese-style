@@ -1,10 +1,10 @@
 {
-    "title": "Huy Hoàng - Kim Thoa",
+    "title": "Minh Tuấn - Ngọc Ánh",
     "header": {
         "title": "THIỆP MỜI",
-        "couple": "Huy Hoàng - Kim Thoa",
-        "day": "THỨ 7 - 18H00",
-        "date": "18.10.2025"
+        "couple": "Minh Tuấn - Ngọc Ánh",
+        "day": "CHỦ NHẬT - 17H30",
+        "date": "25.12.2025"
     },
     "curtain": {
         "src": "assets/images/囍.png",
@@ -25,15 +25,15 @@
     "family": {
         "groom": {
             "title": "NHÀ TRAI",
-            "father": "ÔNG NGUYỄN QUỐC TRƯỞNG",
-            "mother": "BÀ NGUYỄN THỊ LIÊN",
-            "location": "PHAN THIẾT, BÌNH THUẬN"
+            "father": "ÔNG LÊ VĂN HÙNG",
+            "mother": "BÀ TRẦN THỊ MAI",
+            "location": "NHA TRANG, KHÁNH HÒA"
         },
         "bride": {
             "title": "NHÀ GÁI",
-            "father": "ÔNG HỒ SĨ THUẬT",
-            "mother": "BÀ ĐỖ THỊ DƯ",
-            "location": "QUI NHƠN, BÌNH ĐỊNH"
+            "father": "ÔNG PHẠM VĂN NAM",
+            "mother": "BÀ NGUYỄN THỊ HƯƠNG",
+            "location": "ĐÀ LẠT, LÂM ĐỒNG"
         }
     },
     "light": {
@@ -42,8 +42,8 @@
     },
     "announcement": {
         "text": "Trân Trọng Báo Tin Lễ Thành Hôn Của",
-        "groom": "Nguyễn Huy Hoàng",
-        "bride": "Hồ Thị Kim Thoa"
+        "groom": "Lê Minh Tuấn",
+        "bride": "Phạm Thị Ngọc Ánh"
     },
     "secondaryImage": {
         "src": "assets/images/toasting-couple.jpg",
@@ -71,18 +71,18 @@
         },
         "eventText": "THAM DỰ TIỆC MỪNG LỄ THÀNH HÔN",
         "timeLabel": "Vào lúc",
-        "time": "18 giờ 00",
-        "date": "Thứ 7, 18 Tháng 10, Năm 2025",
-        "lunarDate": "Tức ngày 27 tháng 08 năm Ất Tỵ",
+        "time": "17 giờ 30",
+        "date": "Chủ Nhật, 25 Tháng 12, Năm 2025",
+        "lunarDate": "Tức ngày 05 tháng 11 năm Ất Tỵ",
         "locationText": "BUỔI TIỆC ĐƯỢC TỔ CHỨC TẠI",
-        "venue": "NHÀ HÀNG BÌNH MINH",
-        "streetAddress": "211 Lê Lợi, Phường Hưng Long",
-        "cityProvince": "Phan Thiết, Bình Thuận",
+        "venue": "NHÀ HÀNG HẢI SẢN SONG TẤN",
+        "streetAddress": "123 Nguyễn Đình Chiểu, Phường 6",
+        "cityProvince": "Nha Trang, Khánh Hòa",
         "mapButton": "Xem chỉ đường"
     },
     "dateSection": {
-        "monthYear": "Tháng 10 - 2025",
-        "calendar": "18-10-2025"
+        "monthYear": "Tháng 12 - 2025",
+        "calendar": "25-12-2025"
     },
     "rsvp": {
         "title": "XÁC NHẬN THAM DỰ & GỬI LỜI CHÚC",
@@ -103,9 +103,9 @@
             "alt": "Mã QR chuyển khoản"
         },
         "info": [
-            "Ngân hàng: Vietcombank",
-            "Số tài khoản: 0421000456759",
-            "Chủ tài khoản: Nguyễn Huy Hoàng"
+            "Ngân hàng: Techcombank",
+            "Số tài khoản: 1234567890123",
+            "Chủ tài khoản: Lê Minh Tuấn"
         ],
         "thanks": "Trân trọng cảm ơn lời chúc và món quà quý giá từ bạn!"
     },
@@ -159,8 +159,8 @@
         }
     },
     "footer": {
-        "thankYou": "Thank you!",
-        "welcome": "Rất hân hạnh được đón tiếp."
+        "thankYou": "Cảm ơn bạn!",
+        "welcome": "Rất hân hạnh được chào đón bạn."
     },
     "music": {
         "title": "A Thousand Years",
