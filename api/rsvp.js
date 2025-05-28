@@ -40,6 +40,6 @@ export default async function handler(req, res) {
 
     } catch (err) {
         console.error("Error:", err);
-        return res.status(500).json({ success: false, message: 'Lỗi server' });
+        return res.status(500).json({ success: false, message: 'Liên hệ 1068studios/nguyenhuyhoang1068@gmail.com bạn nhé' });
     }
 }
