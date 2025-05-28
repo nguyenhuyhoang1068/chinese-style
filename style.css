@@ -330,6 +330,15 @@ body {
     top: 1%;
     right: 1%;
 }
+
+.wedding-section p a {
+    color: #be123c; /* Màu rose-700 */
+    transition: all 0.3s ease;
+}
+.wedding-section p a:hover {
+    text-decoration: underline;
+}
+
 /* Album Image Styles */
 #album-images img {
     width: 10rem;
