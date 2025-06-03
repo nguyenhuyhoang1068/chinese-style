@@ -21,3 +21,12 @@ Phát triển bởi **1068 Studios**, đội ngũ sáng tạo mang đến sản 
 - Thân thiện môi trường, giảm sử dụng giấy.
 
 Tạo lễ cưới đáng nhớ với **Chinese Wedding E-Card** – sự hòa quyện hoàn hảo giữa truyền thống và công nghệ!
+
+---
+
+© 2025 Nguyen Huy Hoang  
+Licensed under the MIT License.  
+This source code is provided for educational and demonstration purposes only.  
+Commercial use or redistribution without permission is prohibited.
+
+---
