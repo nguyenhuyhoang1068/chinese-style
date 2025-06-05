@@ -166,7 +166,7 @@
 
         <!-- Photo Album -->
         <section id="album" class="wedding-section animate-element py-8 px-6 bg-rose-50" data-animate="zoom-in">
-            <h3 id="album-title" class="animate-element text-center text-2xl font-bold text-rose-800 dancing-script-400"
+            <h3 id="album-title" class="animate-element text-center text-2xl py-4 font-bold text-rose-800 dancing-script-400"
                 data-animate="fade-in">
             </h3>
             <div id="album-images" class="grid grid-cols-2 gap-x-2 gap-y-2">
@@ -216,6 +216,16 @@
             <p class="text-rose-600 dancing-script-400 animation-float-up-down"></p>
         </div>
     </div>    
+    <!-- Thank You Modal -->
+    <div id="thank-you-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg p-6 max-w-sm w-full text-center relative">
+            <button id="close-thank-you-modal" class="absolute top-2 right-2 text-gray-600 hover:text-rose-700">
+                <i class="ph-bold ph-x-circle text-2xl"></i>
+            </button>
+            <h3 class="text-2xl text-rose-700 dancing-script-400 mb-4">Cảm ơn bạn!</h3>
+            <p class="text-gray-700">Bạn đã xác nhận tham dự thành công!</p>
+        </div>
+    </div>
     <script src="./main.js"></script>
 </body>
 
