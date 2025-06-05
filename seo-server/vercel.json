@@ -6,7 +6,7 @@
                 {
                     "type": "header",
                     "key": "user-agent",
-                    "value": ".*(facebook|messenger|zalo|google|twitter|linkedin|bot|crawl|slack|preview).*"
+                    "value": "(?i)(facebook|twitter|linkedin|bot|crawl|slack|zalo)"
                 }
             ],
             "destination": "/crawler",
