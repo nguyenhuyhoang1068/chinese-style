@@ -1,32 +1,26 @@
-// app/crawler/page.tsx
-import { Metadata } from "next";
 import content from "../../../content.json";
+import Head from "next/head";
 
-export const metadata: Metadata = {
-    title: content.openGraph.title,
-    description: content.openGraph.description,
-    openGraph: {
-        title: content.openGraph.title,
-        description: content.openGraph.description,
-        url: content.openGraph.url,
-        images: [
-            {
-                url: new URL(content.openGraph.image, content.openGraph.url).href,
-                width: 1200,
-                height: 630,
-            },
-        ],
-        type: "website",
-    },
-};
+export default function CrawlerPage() {
+    const { title, description, image, url } = content.openGraph;
 
-export default function Page() {
     return (
-        <html>
-            <body>
-                <h1>SEO page for crawler</h1>
-                <p>This page is only for bots.</p>
-            </body>
-        </html>
+        <>
+            <Head>
+                <title>{title}</title>
+                <meta property="og:title" content={title} />
+                <meta property="og:description" content={description} />
+                <meta property="og:image" content={new URL(image, url).href} />
+                <meta property="og:url" content={url} />
+                <meta property="og:image:width" content="1200" />
+                <meta property="og:image:height" content="630" />
+                <meta property="og:type" content="website" />
+            </Head>
+
+            <div style={{ padding: 40 }}>
+                <h1>{title}</h1>
+                <p>{description}</p>
+            </div>
+        </>
     );
 }
