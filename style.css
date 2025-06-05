@@ -335,7 +335,6 @@ body {
 }
 
 #thank-you-modal .bg-white {
-    border: 3px solid #FFD700;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
@@ -345,7 +344,7 @@ body {
 }
 
 .wedding-section p a {
-    color: #be123c; /* rose-700 */
+    color: #be123c;
     transition: all 0.3s ease;
 }
 .wedding-section p a:hover {

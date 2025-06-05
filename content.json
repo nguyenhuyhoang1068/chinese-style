@@ -100,7 +100,10 @@
         "messagePlaceholder": "Lời chúc của bạn",
         "attendanceLabel": "Bạn có tham dự không?",
         "submitButton": "GỬI NGAY",
-        "giftText": "GỬI MỪNG CƯỚI"
+        "giftText": "GỬI MỪNG CƯỚI",
+        "thankYouTitle": "Thank you",
+        "thankYouMessageAttending": "Cảm ơn bạn đã xác nhận tham dự. Sự hiện diện của bạn là niềm vinh hạnh và niềm vui lớn đối với chúng tôi trong ngày trọng đại này.",
+        "thankYouMessageNotAttending": "Cảm ơn bạn đã phản hồi. Thật tiếc vì bạn không thể tham dự, nhưng những lời chúc tốt đẹp của bạn cũng đủ để chúng tôi cảm nhận được sự hiện diện đầy ý nghĩa từ xa."
     },
     "qrCode": {
         "title": "Gửi Lời Chúc Hạnh Phúc",
