@@ -1,4 +1,10 @@
 {
+    "openGraph": {
+        "title": "Thiệp Cưới - Minh Tuấn & Ngọc Ánh",
+        "image": "assets/images/wedding-thumbnail.jpg",
+        "description": "Tham gia lễ cưới của chúng tôi và cùng chia sẻ niềm vui!",
+        "url": "https://chinese-style.vercel.app"
+    },
     "title": "Minh Tuấn - Ngọc Ánh",
     "header": {
         "title": "THIỆP MỜI",
