@@ -1,0 +1,16 @@
+{
+    "redirects": [
+        {
+            "source": "/",
+            "has": [
+                {
+                    "type": "header",
+                    "key": "user-agent",
+                    "value": ".*(facebook|messenger|zalo|google|twitter|linkedin|bot|crawl|slack|preview).*"
+                }
+            ],
+            "destination": "/crawler",
+            "permanent": false
+        }
+    ]
+}
