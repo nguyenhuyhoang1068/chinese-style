@@ -1,8 +1,13 @@
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Playfair Display', 'Roboto', sans-serif;
     background: linear-gradient(to bottom, #f8f1eb, #fff);
 }
 
+/* Font */
 .great-vibes-regular {
     font-family: "Great Vibes", cursive;
     font-weight: 400;
@@ -69,6 +74,7 @@ body {
     z-index: 50;
 }
 
+/* Head section */
 .logo-placeholder::before {
     content: '囍';
     font-size: 3rem;
@@ -94,13 +100,9 @@ body {
 
 .lantern {
     width: 20%;
-    /* Tương đương ~20% chiều rộng container */
     height: 30%;
-    /* Tương đương ~30% chiều cao container */
     bottom: -25%;
-    /* Điều chỉnh tỷ lệ */
     right: -10%;
-    /* Điều chỉnh tỷ lệ */
 }
 
 #happiness-logo {
@@ -226,7 +228,6 @@ body {
 
 #music-control {
     position: fixed;
-    /* fixed it to scroll */
     bottom: 1rem;
     left: 1rem;
     font-size: 2rem;
@@ -234,8 +235,6 @@ body {
     z-index: 1000;
     transition: transform 0.2s ease, color 0.3s ease;
     cursor: pointer;
-
-    /* important */
     display: inline-block;
 }
 
@@ -251,7 +250,6 @@ body {
 #music-control.paused::after {
     content: '';
     position: absolute;
-    /* compare itself */
     top: 50%;
     left: 50%;
     width: 110%;
@@ -269,12 +267,6 @@ body {
 /* Scroll Up/Down Icon Styles */
 #scroll-toggle {
     position: fixed;
-    bottom: 1rem;
-    /* ~ Tailwind: bottom-4 */
-    right: 1rem;
-    /* ~ Tailwind: right-4 */
-    font-size: 2.25rem;
-    /* text-4xl */
     color: rgb(190, 18, 60);
     cursor: pointer;
     z-index: 50;
@@ -332,7 +324,7 @@ body {
 }
 
 .wedding-section p a {
-    color: #be123c; /* Màu rose-700 */
+    color: #be123c; /* rose-700 */
     transition: all 0.3s ease;
 }
 .wedding-section p a:hover {
@@ -346,7 +338,6 @@ body {
     height: 10rem;
     /* h-40 = 160px */
     object-fit: cover;
-    /* Cắt ảnh vượt quá */
 }
 
 #album-images img.large-vertical {
